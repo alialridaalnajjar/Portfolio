@@ -4,7 +4,7 @@ import { IoVolumeMediumSharp, IoVolumeMuteSharp } from "react-icons/io5";
 import type { ClickSoundType } from "../types/ClickSoundType";
 
 export default function Navbar({ handClickSound }: ClickSoundType) {
-  const [musicPlaying, setMusicPlaying] = React.useState(false); 
+  const [musicPlaying, setMusicPlaying] = React.useState(false);
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
 
   React.useEffect(() => {
@@ -43,8 +43,6 @@ export default function Navbar({ handClickSound }: ClickSoundType) {
     };
 
     tryAutoPlay();
-
-    
   }, []);
 
   const handleMusicToggle = () => {
@@ -72,13 +70,17 @@ export default function Navbar({ handClickSound }: ClickSoundType) {
 
   return (
     <div className="bg-transparent fixed top-0 left-0 w-full z-50 flex items-center justify-between p-4 backdrop-blur-md ">
-      <div className="text-white font-bold">Ali Najjar</div>
-        <div></div>
+      <div className="text-white font-bold lg:text-2xl lg:hidden">
+        Ali Najjar
+      </div>
+      <div></div>
 
-      <div className="flex items-center gap-5 lg:gap-50 lg:mx-5">
+      <div className="lg:visible hidden "></div>
+
+      <div className="flex items-center gap-5 lg:gap-50 lg:mx-5 lg:hidden">
         <div onClick={handleMusicToggle} className="cursor-pointer text-white ">
           {musicPlaying ? (
-            <IoVolumeMediumSharp size={25}  className="lg:size-10"/>
+            <IoVolumeMediumSharp size={25} className="lg:size-10" />
           ) : (
             <IoVolumeMuteSharp size={25} className="lg:size-10" />
           )}
