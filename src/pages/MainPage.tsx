@@ -3,6 +3,13 @@ import bgVid from "../assets/VerticalBg.mp4"; // or whatever your video file ext
 import Navbar from "@/components/Navbar";
 
 export default function MainPage() {
+  const handClickSound = () => {
+    const clickedAudio = new Audio("/portfolioClick.mp3");
+    clickedAudio
+      .play()
+      .then(() => console.log("clicked ! sound played"))
+      .catch((error) => console.error("Error playing click sound:", error));
+  };
   return (
     <div className="relative h-screen min-h-screen  overflow-hidden">
       <video
@@ -14,16 +21,17 @@ export default function MainPage() {
       >
         <source src={bgVid} type="video/mp4" />
       </video>
-      
-      <Navbar />
+
+      <Navbar handClickSound={handClickSound} />
       <div className="flex flex-col items-center justify-around  h-full relative gap-2 ">
-       
-        
-       
-         <ThreeDButton>More Of <span className="font-serif">Ali</span></ThreeDButton>
-        
-         <ThreeDButton>Download Resume!</ThreeDButton></div>
-  
+        <ThreeDButton handClickSound={handClickSound}>
+          More Of <span className="font-serif">Ali</span>
+        </ThreeDButton>
+
+        <ThreeDButton handClickSound={handClickSound}>
+          Download Resume!
+        </ThreeDButton>
+      </div>
     </div>
   );
 }
