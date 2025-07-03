@@ -1,6 +1,6 @@
-import ThreeDButton from "@/secondaryComponents/ThreeDButton";
-import bgVid from "../assets/VerticalBg.mp4"; // or whatever your video file extension is
 import Navbar from "@/components/Navbar";
+import ThreeDButton from "@/secondaryComponents/ThreeDButton";
+import bgVid from "../assets/VerticalBg.mp4";
 
 export default function MainPage() {
   const handClickSound = () => {
@@ -11,13 +11,13 @@ export default function MainPage() {
       .catch((error) => console.error("Error playing click sound:", error));
   };
   return (
-    <div className="relative h-screen min-h-screen  overflow-hidden">
+    <div className="relative h-screen min-h-screen  overflow-hidden cursor-auto lg:bg-green-300">
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute  w-full h-full object-cover z-0"
+        className="absolute  w-full h-full object-cover z-0 lg:-z-10"
       >
         <source src={bgVid} type="video/mp4" />
       </video>
