@@ -73,7 +73,12 @@ export default function Navbar({ handClickSound }: ClickSoundType) {
       <div className="text-white font-bold lg:text-2xl lg:hidden">
         Ali Najjar
       </div>
-      <div></div>
+      <div className=" hidden lg:flex items-center justify-between w-full max-w-4xl mx-auto text-white font-bold mt-5  px-4">
+        <div>My Mission</div>
+        <div>Projects</div>
+        <div>Articles</div>
+        <div>Contact</div>
+      </div>
 
       <div className="lg:visible hidden "></div>
 

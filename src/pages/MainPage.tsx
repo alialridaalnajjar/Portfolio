@@ -3,6 +3,7 @@ import { RetroPopup } from "@/secondaryComponents/RetroPopUp";
 import ThreeDButton from "@/secondaryComponents/ThreeDButton";
 import { TbFileCv } from "react-icons/tb";
 import CV from "../assets/AliAlNajjarCV.pdf";
+import lgVid from "../assets/HorizontalBG.mp4";
 import bgVid from "../assets/VerticalBg.mp4";
 export default function MainPage() {
   const handClickSound = () => {
@@ -13,20 +14,29 @@ export default function MainPage() {
       .catch((error) => console.error("Error playing click sound:", error));
   };
   return (
-    <div className="relative h-auto min-h-screen   overflow-hidden cursor-auto lg:bg-green-300 bg-fuchsia-950 ">
+    <div className="relative h-auto min-h-screen   overflow-hidden cursor-auto   ">
       <RetroPopup />
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute  w-full h-full object-cover z-0 lg:-z-10"
+        className="absolute  w-full h-full object-cover z-0 lg:-z-10 lg:hidden"
       >
         <source src={bgVid} type="video/mp4" />
       </video>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute  w-full h-full object-cover -z-30  lg:-z-40  "
+      >
+        <source src={lgVid} type="video/mp4" />
+      </video>
       <Navbar handClickSound={handClickSound} />
       <div className=" mt-25  flex flex-col items-center justify-around  h-full relative gap-12 ">
-      <div>rwef</div>
+        <div>rwef</div>
 
         <ThreeDButton handClickSound={handClickSound}>
           My Adventure
