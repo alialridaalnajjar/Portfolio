@@ -9,6 +9,8 @@ import img from "../assets/PorfolioImg.jpeg";
 import bgVid from "../assets/VerticalBg.mp4";
 
 export default function MainPage() {
+    const [musicPlaying, setMusicPlaying] = React.useState(false);
+  
   const handClickSound = () => {
     const clickedAudio = new Audio("/portfolioClick.mp3");
     clickedAudio
@@ -49,15 +51,15 @@ export default function MainPage() {
 
       <div className="absolute inset-0 bg-black/20 lg:bg-black/60 z-10"></div>
 
-      <Navbar handClickSound={handClickSound} handleNavClick={handleNavClick} />
+      <Navbar handClickSound={handClickSound} handleNavClick={handleNavClick} musicPlaying={musicPlaying} setMusicPlaying={setMusicPlaying} />
       {navClicked && (
-        <div className="relative z-20 flex flex-col items-center justify-center h-fit pt-20 lg:hidden">
-          <div> 1 </div>
-          <div>2 </div>
-          <div> 3</div>
-          <div>4 </div>
-          <div> 5</div>
-          <div>6 </div>
+        <div className="relative z-20 flex flex-col items-center justify-center h-fit pt-20 lg:hidden pb-3 bg-black/50 backdrop-blur-md   text-white gap-4 caret-transparent">
+          <div> Main </div>
+          <div> Services</div>
+          <div> Projects </div>
+          <div> Certificates </div>
+          <div> Articles </div>
+          <div> Contact </div>
         </div>
       )}
 

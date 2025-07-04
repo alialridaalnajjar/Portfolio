@@ -2,12 +2,14 @@ import { Menu } from "lucide-react";
 import React from "react";
 import { IoVolumeMediumSharp, IoVolumeMuteSharp } from "react-icons/io5";
 import type { ClickSoundType } from "../types/ClickSoundType";
+import { Link } from "react-router-dom";
 
 export default function Navbar({
   handClickSound,
   handleNavClick,
+  musicPlaying,
+  setMusicPlaying,
 }: ClickSoundType) {
-  const [musicPlaying, setMusicPlaying] = React.useState(false);
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
 
   React.useEffect(() => {
@@ -104,13 +106,13 @@ export default function Navbar({
           </span>
           <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
         </div>
-
+<Link to= "/ArticleMenuPage">
         <div className="relative group cursor-pointer">
           <span className="transition-colors duration-300 group-hover:text-blue-300">
             Articles
           </span>
           <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
-        </div>
+        </div></Link>
 
         <div className="relative group cursor-pointer">
           <span className="transition-colors duration-300 group-hover:text-blue-300">
