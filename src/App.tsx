@@ -1,13 +1,13 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import ContentPage from "./pages/ContentPage";
-import MainPage from "./pages/MainPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
     <Router >
       <Routes>
-        <Route element={<MainPage/> } path="/" />
+        <Route element={<HomePage/> } path="/" />
         <Route element={<ContentPage/>} path="/ContentPage"/>
       </Routes>
     </Router>
