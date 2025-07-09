@@ -9,8 +9,10 @@ import img from "../assets/PorfolioImg.jpeg";
 import bgVid from "../assets/VerticalBg.mp4";
 
 export default function MainPage() {
-    const [musicPlaying, setMusicPlaying] = React.useState(false);
-  
+  const [musicPlaying, setMusicPlaying] = React.useState(false);
+  const [navClicked, setNavClicked] = React.useState(false);
+  const [isClosing, setIsClosing] = React.useState(false);
+
   const handClickSound = () => {
     const clickedAudio = new Audio("/portfolioClick.mp3");
     clickedAudio
@@ -19,10 +21,18 @@ export default function MainPage() {
       .catch((error) => console.error("Error playing click sound:", error));
   };
 
-  const [navClicked, setNavClicked] = React.useState(false);
   const handleNavClick = () => {
     handClickSound();
-    setNavClicked(!navClicked);
+    if (navClicked) {
+      // Start closing animation
+      setIsClosing(true);
+      setTimeout(() => {
+        setNavClicked(false);
+        setIsClosing(false);
+      }, 300); // Match animation duration
+    } else {
+      setNavClicked(true);
+    }
   };
 
   return (
@@ -51,21 +61,74 @@ export default function MainPage() {
 
       <div className="absolute inset-0 bg-black/20 lg:bg-black/60 z-10"></div>
 
-      <Navbar handClickSound={handClickSound} handleNavClick={handleNavClick} musicPlaying={musicPlaying} setMusicPlaying={setMusicPlaying} />
+      <Navbar
+        handClickSound={handClickSound}
+        handleNavClick={handleNavClick}
+        musicPlaying={musicPlaying}
+        setMusicPlaying={setMusicPlaying}
+      />
+
       {navClicked && (
-        <div className="relative z-20 flex flex-col items-center justify-center h-fit pt-20 lg:hidden pb-3 bg-black/50 backdrop-blur-md   text-white gap-4 caret-transparent">
-          <div> Main </div>
-          <div> Services</div>
-          <div> Projects </div>
-          <div> Certificates </div>
-          <div> Articles </div>
-          <div> Contact </div>
-        </div>
+        <div className="fixed top-0 left-0 w-full h-full bg-black/20 backdrop-blur-xs z-30 ">
+        <div
+          className={`relative z-20 flex flex-col items-center justify-center h-fit pt-20 lg:hidden pb-3 bg-black/50 backdrop-blur-md text-white gap-4 caret-transparent ${
+            isClosing ? "animate-slide-up" : "animate-slide-down"
+          }`}
+        >
+          <div
+            className={`menu-item ${
+              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+            }`}
+            style={{ animationDelay: isClosing ? "0s" : "0.1s" }}
+          >
+            Main
+          </div>
+          <div
+            className={`menu-item ${
+              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+            }`}
+            style={{ animationDelay: isClosing ? "0.05s" : "0.2s" }}
+          >
+            Services
+          </div>
+          <div
+            className={`menu-item ${
+              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+            }`}
+            style={{ animationDelay: isClosing ? "0.1s" : "0.3s" }}
+          >
+            Projects
+          </div>
+          <div
+            className={`menu-item ${
+              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+            }`}
+            style={{ animationDelay: isClosing ? "0.15s" : "0.4s" }}
+          >
+            Certificates
+          </div>
+          <div
+            className={`menu-item ${
+              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+            }`}
+            style={{ animationDelay: isClosing ? "0.2s" : "0.5s" }}
+          >
+            Articles
+          </div>
+          <div
+            className={`menu-item ${
+              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+            }`}
+            style={{ animationDelay: isClosing ? "0.25s" : "0.6s" }}
+          >
+            Contact
+          </div>
+        </div></div>
       )}
 
       <div
         className="relative z-20 flex flex-col items-center justify-center h-full px-4 lg:px-8"
-        style={{ paddingBottom: navClicked ? "20rem" : "0" }}
+        
       >
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 mb-12 lg:mb-16">
           <div className="relative group">
@@ -115,6 +178,76 @@ export default function MainPage() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes slide-down {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slide-up {
+          from {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+        }
+
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fade-out-down {
+          from {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+        }
+
+        .animate-slide-down {
+          animation: slide-down 0.3s ease-out forwards;
+        }
+
+        .animate-slide-up {
+          animation: slide-up 0.3s ease-out forwards;
+        }
+
+        .animate-fade-in-up {
+          animation: fade-in-up 0.4s ease-out forwards;
+          opacity: 0;
+        }
+
+        .animate-fade-out-down {
+          animation: fade-out-down 0.3s ease-out forwards;
+        }
+
+      
+        .menu-item:hover {
+          background-color: rgba(59, 130, 246, 0.2);
+          transform: translateX(10px);
+          color: #60a5fa;
+        }
+      `}</style>
     </div>
   );
 }
