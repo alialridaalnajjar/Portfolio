@@ -23,19 +23,19 @@ export default function ServiceSection() {
   ];
 
   return (
-    <div className="bg-black h-auto min-h-screen relative">
+    <div className="bg-black h-auto min-h-screen relative caret-transparent">
       {/* About section */}
-      <div className="flex flex-row items-center justify-center pt-10.75">
+      <div className="flex flex-row items-center justify-center pt-10.75 lg:pt-30 lg:gap-4">
         <div className="relative">
           <h1 className="text-4xl font-bold text-white relative z-10">About</h1>
           <div className="absolute top-7 left-5 w-28 h-4.5 bg-blue-700 z-0"></div>
         </div>
       </div>
-
+      <div  className=" lg:mt-15  lg:visible lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-15 mt-2">
       {/* Profile and description */}
       <div className="flex flex-col items-center justify-center gap-4 text-xs font-mono mt-7.5">
-        <img src={img} alt="Profile Image" className="size-60" />
-        <p className="text-white text-left max-w-80 leading-4.75">
+        <img src={img} alt="Profile Image" className="size-60 lg:size-80" />
+        <p className="text-white text-left max-w-80 leading-4.75 lg:text-xl lg:max-w-xl lg:leading-8 lg:font-sans lg:font-light ">
           Fully committed to the philosophy of life-long learning, I'm a full
           stack developer with a deep passion for TypeScript, React and all web
           tech. The unique combination of creativity, logic, technology and
@@ -48,16 +48,16 @@ export default function ServiceSection() {
       </div>
 
       {/* Languages grid with gradient borders */}
-      <div className="flex flex-wrap justify-center gap-4 mt-8 px-4">
+      <div className="flex flex-wrap justify-center gap-4 mt-8 px-4 lg:max-w-2xl lg:gap-10">
         {languages.map((lang, index) => (
-          <div key={index} className="tech-card ">
+          <div key={index} className="tech-card lg:size-35 ">
             <img src={lang.icon} alt={lang.name} className="size-10 mb-2" />
             <h1 className="text-xs text-white text-center font-semibold uppercase">
               {lang.name}
             </h1>
           </div>
         ))}
-      </div>
+      </div></div>
 
       <style>{`
         .tech-card {
