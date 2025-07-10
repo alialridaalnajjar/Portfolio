@@ -9,6 +9,7 @@ export default function ProjectCard({
   url: string;
   repo: string;
   img: string;
+  desc:string
 }) {
   return (
     <div className="w-full relative pt-20">
@@ -31,9 +32,7 @@ export default function ProjectCard({
         </div>
       </div>
       <div hidden>
-        {repo}
-        {desc}
-      </div>
+      {repo}{desc}</div>
     </div>
   );
 }

@@ -48,7 +48,7 @@ export default function ProjectSection() {
           repo={p.repo}
           img={p.img}
           desc={p.desc}
-          inverse={p.inverse}
+          
         />
       ))}
     </div></div>
