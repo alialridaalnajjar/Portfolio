@@ -24,7 +24,7 @@ export default function ProjectCard({
           <img
             src={img}
             alt="Project Image"
-            className="h-35 w-55 lg:h-120 lg:w-200"
+            className="h-35 w-13/15 lg:h-120 lg:w-200"
           />
         </a>
       </div>

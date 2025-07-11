@@ -1,6 +1,6 @@
-import ProjectCard from "./ProjectCard";
 import Imgone from "../assets/images/ArWarehouse.png";
 import ImgTwo from "../assets/images/BakaRate.png";
+import ProjectCard from "./ProjectCard";
 export default function ProjectSection() {
   const projects: {
     name: string;

@@ -22,7 +22,7 @@ export default function MainPage() {
   };
 
   const handleNavClick = () => {
-    handClickSound();
+   
     if (navClicked) {
       // Start closing animation
       setIsClosing(true);
@@ -70,66 +70,64 @@ export default function MainPage() {
 
       {navClicked && (
         <div className="fixed top-0 left-0 w-full h-full bg-black/20 backdrop-blur-xs z-30 ">
-        <div
-          className={`relative z-20 flex flex-col items-center justify-center h-fit pt-20 lg:hidden pb-3 bg-black/50 backdrop-blur-md text-white gap-4 caret-transparent ${
-            isClosing ? "animate-slide-up" : "animate-slide-down"
-          }`}
-        >
           <div
-            className={`menu-item ${
-              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+            className={`relative z-20 flex flex-col items-center justify-center h-fit pt-20 lg:hidden pb-3 bg-black/50 backdrop-blur-md text-white gap-4 caret-transparent ${
+              isClosing ? "animate-slide-up" : "animate-slide-down"
             }`}
-            style={{ animationDelay: isClosing ? "0s" : "0.1s" }}
           >
-            Main
+            <div
+              className={`menu-item ${
+                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+              }`}
+              style={{ animationDelay: isClosing ? "0s" : "0.1s" }}
+            >
+              Main
+            </div>
+            <div
+              className={`menu-item ${
+                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+              }`}
+              style={{ animationDelay: isClosing ? "0.05s" : "0.2s" }}
+            >
+              Services
+            </div>
+            <div
+              className={`menu-item ${
+                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+              }`}
+              style={{ animationDelay: isClosing ? "0.1s" : "0.3s" }}
+            >
+              Projects
+            </div>
+            <div
+              className={`menu-item ${
+                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+              }`}
+              style={{ animationDelay: isClosing ? "0.15s" : "0.4s" }}
+            >
+              Certificates
+            </div>
+            <div
+              className={`menu-item ${
+                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+              }`}
+              style={{ animationDelay: isClosing ? "0.2s" : "0.5s" }}
+            >
+              Articles
+            </div>
+            <div
+              className={`menu-item ${
+                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+              }`}
+              style={{ animationDelay: isClosing ? "0.25s" : "0.6s" }}
+            >
+              Contact
+            </div>
           </div>
-          <div
-            className={`menu-item ${
-              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-            }`}
-            style={{ animationDelay: isClosing ? "0.05s" : "0.2s" }}
-          >
-            Services
-          </div>
-          <div
-            className={`menu-item ${
-              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-            }`}
-            style={{ animationDelay: isClosing ? "0.1s" : "0.3s" }}
-          >
-            Projects
-          </div>
-          <div
-            className={`menu-item ${
-              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-            }`}
-            style={{ animationDelay: isClosing ? "0.15s" : "0.4s" }}
-          >
-            Certificates
-          </div>
-          <div
-            className={`menu-item ${
-              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-            }`}
-            style={{ animationDelay: isClosing ? "0.2s" : "0.5s" }}
-          >
-            Articles
-          </div>
-          <div
-            className={`menu-item ${
-              isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-            }`}
-            style={{ animationDelay: isClosing ? "0.25s" : "0.6s" }}
-          >
-            Contact
-          </div>
-        </div></div>
+        </div>
       )}
 
-      <div
-        className="relative z-20 flex flex-col items-center justify-center h-full px-4 lg:px-8"
-        
-      >
+      <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 mb-12 lg:mb-16">
           <div className="relative group">
             <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>

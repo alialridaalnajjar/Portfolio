@@ -1,8 +1,8 @@
 import { Menu } from "lucide-react";
 import React from "react";
 import { IoVolumeMediumSharp, IoVolumeMuteSharp } from "react-icons/io5";
-import type { ClickSoundType } from "../types/ClickSoundType";
 import { Link } from "react-router-dom";
+import type { ClickSoundType } from "../types/ClickSoundType";
 
 export default function Navbar({
   handClickSound,
