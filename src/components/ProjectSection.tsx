@@ -1,34 +1,36 @@
 import ProjectCard from "./ProjectCard";
 import Imgone from "../assets/images/ArWarehouse.png";
-import ImgTwo from"../assets/images/BakaRate.png";
+import ImgTwo from "../assets/images/BakaRate.png";
 export default function ProjectSection() {
   const projects: {
     name: string;
     url: string;
     repo: string;
-    img: string ;
+    img: string;
     desc: string;
-    inverse?:boolean;
+    inverse: boolean;
   }[] = [
     {
       name: "Ar Warehouse",
       url: "https://ar-warehouse.vercel.app/",
-      repo: "",
+      repo: "https://github.com/alialridaalnajjar/AR_Warehouse",
       img: Imgone,
-      desc: "A web application for managing augmented reality assets.",
+      desc: "A modern,responsive e-commerce web app for esports gadgets, built with React, TypeScript, and Tailwind CSS.",
       inverse: false,
-    }, {
+    },
+    {
       name: "Baka Rate",
-      url: "https://ar-warehouse.vercel.app/",
-      repo: "",
+      url: "https://alialridaalnajjar.github.io/BakaRate/",
+      repo: "https://github.com/alialridaalnajjar/BakaRate",
       img: ImgTwo,
-      desc: "A web application for managing augmented reality assets.",
-      inverse: false,
+      desc: " BAKARATE is a modern, interactive anime listing and rating web app built with React, TypeScript, and Tailwind CSS.",
+      inverse: true,
     },
   ];
 
   return (
-    <div className="bg-black h-auto min-h-screen relative caret-transparent pt-12 lg:pt-20 ">
+    
+    <div className="bg-black h-auto min-h-screen relative caret-transparent  ">
       {/* About section */}
       <div className="flex flex-row items-center justify-center pt-10.75 lg:pt-30 lg:gap-4">
         <div className="relative">
@@ -39,18 +41,19 @@ export default function ProjectSection() {
         </div>
       </div>
 
-    <div className="mt-10">
-      {projects.map((p, index) => (
-        <ProjectCard
-          key={index}
-          name={p.name}
-          url={p.url}
-          repo={p.repo}
-          img={p.img}
-          desc={p.desc}
-          
-        />
-      ))}
-    </div></div>
+      <div className="mt-10">
+        {projects.map((p, index) => (
+          <ProjectCard
+            key={index}
+            name={p.name}
+            url={p.url}
+            repo={p.repo}
+            img={p.img}
+            desc={p.desc}
+            inverse={p.inverse}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
