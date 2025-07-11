@@ -35,7 +35,7 @@ export default function MainPage() {
   };
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden caret-transparent">
       <RetroPopup />
 
       <video
@@ -148,7 +148,7 @@ export default function MainPage() {
           <div className="text-center lg:text-left text-white">
             <h1 className="text-3xl lg:text-5xl font-bold mb-2 lg:mb-4 drop-shadow-lg">
               Greetings, I'm{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 drop-shadow-none">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 drop-shadow-none font-kick">
                 Ali
               </span>
             </h1>

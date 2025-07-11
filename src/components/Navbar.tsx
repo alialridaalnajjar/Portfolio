@@ -74,10 +74,11 @@ export default function Navbar({
   };
 
   return (
-    <div className="bg-transparent fixed top-0 left-0 w-full z-50 flex items-center justify-between p-4 backdrop-blur-md  lg:backdrop-blur-none">
-      <div className="text-white font-bold lg:text-2xl lg:hidden">
-        Ali Najjar
-      </div>
+    <div className="caret-transparent bg-transparent fixed top-0 left-0 w-full z-50 flex items-center justify-between p-4 backdrop-blur-md  lg:backdrop-blur-none">
+    <a href="#">
+      <div className="text-white font-kick  lg:hidden font-extralight">
+        A. Najjar
+      </div></a>
       <div className=" hidden lg:flex items-center justify-between w-full max-w-4xl mx-auto text-white font-bold mt-5  px-4 lg:bg-black/50 lg:rounded-lg lg:p-4 ">
         <a href="#">
           <div className="relative group cursor-pointer">

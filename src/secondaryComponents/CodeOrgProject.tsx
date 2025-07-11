@@ -1,7 +1,10 @@
 import img from "../assets/images/codeOrgImg111.png";
 export default function CodeOrgProject() {
   return (
-    <div className="w-full relative pt-7 lg:pt-20 md:px-25 lg:px-50" id="CodeOrgProject">
+    <div
+      className="w-full relative pt-7 lg:pt-20 md:px-25 lg:px-50"
+      id="CodeOrgProject"
+    >
       <div
         className={`bg-indigo-800 flex flex-row items-center justify-between max-w-5/9 h-50 md:h-75 lg:h-145 `}
       >
@@ -34,15 +37,20 @@ export default function CodeOrgProject() {
 
         <a href="https://studio.code.org/projects/applab/eMJlUxRGQccYPfv5qbbEvPdTIywD6gTC3tcy37LJlOw">
           <div className="underline-offset-2 text-xs uppercase min-w-24 font-light">
-            <h1 className="pl-2 pb-0.5 md:text-lg lg:text-2xl  text-white">Live Now</h1>
+            <h1 className="pl-2 pb-0.5 md:text-lg lg:text-2xl  text-white">
+              Live Now
+            </h1>
             <div className="bg-lime-300 w-8/10 h-0.5 md:w-10/10 lg:w-11/10"></div>
           </div>
         </a>
-
-        <div className="underline-offset-2 text-xs uppercase min-w-24 font-light">
-          <h1 className="pl-2 pb-0.5 md:text-lg lg:text-2xl  text-white">::::</h1>
-          <div className="bg-lime-300 w-9/10 h-0.5 md:w-10/10 lg:w-11/10"></div>
-        </div>
+        <a href="https://studio.code.org/projects/applab/eMJlUxRGQccYPfv5qbbEvPdTIywD6gTC3tcy37LJlOw">
+          <div className="underline-offset-2 text-xs uppercase min-w-24 font-light">
+            <h1 className="pl-2 pb-0.5 md:text-lg lg:text-2xl  text-white">
+              Src Code Included
+            </h1>
+            <div className="bg-lime-300 w-9/10 h-0.5 md:w-10/10 lg:w-11/10"></div>
+          </div>
+        </a>
       </div>
     </div>
   );
