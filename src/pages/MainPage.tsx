@@ -4,7 +4,8 @@ import ThreeDButton from "@/secondaryComponents/ThreeDButton";
 import React from "react";
 import { TbFileCv } from "react-icons/tb";
 import CV from "../assets/AliAlNajjarCV.pdf";
-import img from "../assets/AnimationSheet_Character (1).gif";
+import awake from "../assets/AnimationSheet_Character (1).gif";
+import sleep from"../assets/sleepyAvatar.gif";
 import lgVid from "../assets/HorizontalBG.mp4";
 import bgVid from "../assets/VerticalBg.mp4";
 
@@ -139,7 +140,7 @@ export default function MainPage() {
           <div className="relative group">
             <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
             <img
-              src={img}
+              src={musicPlaying ? awake : sleep}
               alt="Ali's Profile"
               className="relative w-32 h-32 lg:w-48 lg:h-48 rounded-3xl object-cover border-4 border-white/20 shadow-2xl hover:scale-105 transition-transform duration-300"
             />
