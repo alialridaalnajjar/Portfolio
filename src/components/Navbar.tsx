@@ -79,26 +79,30 @@ export default function Navbar({
         Ali Najjar
       </div>
       <div className=" hidden lg:flex items-center justify-between w-full max-w-4xl mx-auto text-white font-bold mt-5  px-4 lg:bg-black/50 lg:rounded-lg lg:p-4 ">
-        <div className="relative group cursor-pointer">
-          <span className="transition-colors duration-300 group-hover:text-blue-300">
-            Main
-          </span>
-          <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
-        </div>
-
-        <div className="relative group cursor-pointer">
-          <span className="transition-colors duration-300 group-hover:text-blue-300">
-            Services
-          </span>
-          <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
-        </div>
-
-        <div className="relative group cursor-pointer">
-          <span className="transition-colors duration-300 group-hover:text-blue-300">
-            Projects
-          </span>
-          <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
-        </div>
+        <a href="#">
+          <div className="relative group cursor-pointer">
+            <span className="transition-colors duration-300 group-hover:text-blue-300">
+              Main
+            </span>
+            <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
+          </div>
+        </a>
+        <a href="#About">
+          <div className="relative group cursor-pointer">
+            <span className="transition-colors duration-300 group-hover:text-blue-300">
+              Services
+            </span>
+            <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
+          </div>
+        </a>
+        <a href="#Projects">
+          <div className="relative group cursor-pointer">
+            <span className="transition-colors duration-300 group-hover:text-blue-300">
+              Projects
+            </span>
+            <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
+          </div>
+        </a>
 
         <div className="relative group cursor-pointer">
           <span className="transition-colors duration-300 group-hover:text-blue-300">
@@ -106,13 +110,14 @@ export default function Navbar({
           </span>
           <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
         </div>
-<Link to= "/ArticleMenuPage">
-        <div className="relative group cursor-pointer">
-          <span className="transition-colors duration-300 group-hover:text-blue-300">
-            Articles
-          </span>
-          <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
-        </div></Link>
+        <Link to="/ArticleMenuPage">
+          <div className="relative group cursor-pointer">
+            <span className="transition-colors duration-300 group-hover:text-blue-300">
+              Articles
+            </span>
+            <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
+          </div>
+        </Link>
 
         <div className="relative group cursor-pointer">
           <span className="transition-colors duration-300 group-hover:text-blue-300">
@@ -134,6 +139,11 @@ export default function Navbar({
           <Menu size={25} className="lg:size-10" />
         </div>
       </div>
+      <style>{`
+  html {
+    scroll-behavior: smooth;
+  }
+`}</style>
     </div>
   );
 }

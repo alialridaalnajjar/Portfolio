@@ -23,7 +23,7 @@ export default function ServiceSection() {
   ];
 
   return (
-    <div className="bg-black h-auto min-h-screen relative caret-transparent">
+    <div className="bg-black h-auto min-h-screen relative caret-transparent" id="About">
       {/* About section */}
       <div className="flex flex-row items-center justify-center pt-10.75 lg:pt-30 lg:gap-4">
         <div className="relative">

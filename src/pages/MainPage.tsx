@@ -22,7 +22,6 @@ export default function MainPage() {
   };
 
   const handleNavClick = () => {
-   
     if (navClicked) {
       // Start closing animation
       setIsClosing(true);
@@ -75,30 +74,38 @@ export default function MainPage() {
               isClosing ? "animate-slide-up" : "animate-slide-down"
             }`}
           >
-            <div
-              className={`menu-item ${
-                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-              }`}
-              style={{ animationDelay: isClosing ? "0s" : "0.1s" }}
-            >
-              Main
-            </div>
-            <div
-              className={`menu-item ${
-                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-              }`}
-              style={{ animationDelay: isClosing ? "0.05s" : "0.2s" }}
-            >
-              Services
-            </div>
-            <div
-              className={`menu-item ${
-                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-              }`}
-              style={{ animationDelay: isClosing ? "0.1s" : "0.3s" }}
-            >
-              Projects
-            </div>
+            <a href="#">
+              <div
+                className={`menu-item ${
+                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+                }`}
+                style={{ animationDelay: isClosing ? "0s" : "0.1s" }}
+                onClick={() => handleNavClick()}
+              >
+                Main
+              </div>
+            </a>
+            <a href="#About">
+              <div
+                className={`menu-item ${
+                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+                }`}
+                style={{ animationDelay: isClosing ? "0.05s" : "0.2s" }}
+                onClick={() => handleNavClick()}
+              >
+                Services
+              </div>
+            </a>
+            <a href="#Projects">
+              <div
+                className={`menu-item ${
+                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+                }`}
+                style={{ animationDelay: isClosing ? "0.1s" : "0.3s" }}
+              >
+                Projects
+              </div>
+            </a>
             <div
               className={`menu-item ${
                 isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
