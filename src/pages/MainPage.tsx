@@ -5,8 +5,8 @@ import React from "react";
 import { TbFileCv } from "react-icons/tb";
 import CV from "../assets/AliAlNajjarCV.pdf";
 import awake from "../assets/AnimationSheet_Character (1).gif";
-import sleep from"../assets/sleepyAvatar.gif";
 import lgVid from "../assets/HorizontalBG.mp4";
+import sleep from "../assets/sleepyAvatar.gif";
 import bgVid from "../assets/VerticalBg.mp4";
 
 export default function MainPage() {
@@ -257,6 +257,8 @@ export default function MainPage() {
           color: #60a5fa;
         }
       `}</style>
+
+      
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react";
+import { Menu, Volume2, VolumeX } from "lucide-react";
 import React from "react";
 import { IoVolumeMediumSharp, IoVolumeMuteSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -75,10 +75,11 @@ export default function Navbar({
 
   return (
     <div className="caret-transparent bg-transparent fixed top-0 left-0 w-full z-50 flex items-center justify-between p-4 backdrop-blur-md  lg:backdrop-blur-none">
-    <a href="#">
-      <div className="text-white font-kick  lg:hidden font-extralight">
-        A. Najjar
-      </div></a>
+      <a href="#">
+        <div className="text-white font-kick  lg:hidden font-extralight">
+          A. Najjar
+        </div>
+      </a>
       <div className=" hidden lg:flex items-center justify-between w-full max-w-4xl mx-auto text-white font-bold mt-5  px-4 lg:bg-black/50 lg:rounded-lg lg:p-4 ">
         <a href="#">
           <div className="relative group cursor-pointer">
@@ -146,6 +147,18 @@ export default function Navbar({
     scroll-padding-top: 10px; 
   }
 `}</style>
+
+      {musicPlaying ? (
+        <Volume2
+          className="fixed bottom-1/40 left-1/160 text-blue-400 z-50  hidden lg:block size-10 -rotate-3 hover:cursor-pointer hover:scale-105"
+          onClick={handleMusicToggle}
+        />
+      ) : (
+        <VolumeX
+          className="fixed bottom-1/40 left-1/160 text-blue-400 z-50  hidden lg:block size-10 -rotate-3 hover:cursor-pointer hover:scale-105"
+          onClick={handleMusicToggle}
+        />
+      )}
     </div>
   );
 }
