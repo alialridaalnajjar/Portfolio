@@ -4,8 +4,8 @@ import ThreeDButton from "@/secondaryComponents/ThreeDButton";
 import React from "react";
 import { TbFileCv } from "react-icons/tb";
 import CV from "../assets/AliAlNajjarCV.pdf";
+import img from "../assets/AnimationSheet_Character (1).gif";
 import lgVid from "../assets/HorizontalBG.mp4";
-import img from "../assets/PorfolioImg.jpeg";
 import bgVid from "../assets/VerticalBg.mp4";
 
 export default function MainPage() {
@@ -161,13 +161,16 @@ export default function MainPage() {
         </div>
 
         <div className="flex flex-col items-center gap-6 lg:gap-8">
-          <ThreeDButton handClickSound={handClickSound}>
-            <span className="flex items-center gap-2">🚀 My Adventure</span>
-          </ThreeDButton>
-
-          <ThreeDButton handClickSound={handClickSound}>
-            <span className="flex items-center gap-3">⚡ The Tech Stack</span>
-          </ThreeDButton>
+          <a href="#Projects">
+            <ThreeDButton handClickSound={handClickSound}>
+              <span className="flex items-center gap-2">🚀 My Adventure</span>
+            </ThreeDButton>
+          </a>
+          <a href="#About">
+            <ThreeDButton handClickSound={handClickSound}>
+              <span className="flex items-center gap-3">⚡ The Tech Stack</span>
+            </ThreeDButton>
+          </a>
           <a href={CV} download={CV}>
             <ThreeDButton handClickSound={handClickSound}>
               <span className="flex items-center gap-2">

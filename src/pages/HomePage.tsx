@@ -1,6 +1,6 @@
+import ProjectSection from "@/components/ProjectSection";
 import ServiceSection from "@/components/ServiceSection";
 import MainPage from "./MainPage";
-import ProjectSection from "@/components/ProjectSection";
 
 export default function HomePage() {
   return (

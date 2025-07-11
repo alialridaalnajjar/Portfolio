@@ -142,6 +142,7 @@ export default function Navbar({
       <style>{`
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 10px; 
   }
 `}</style>
     </div>
