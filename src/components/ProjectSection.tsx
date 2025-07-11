@@ -34,7 +34,7 @@ export default function ProjectSection() {
   ];
 
   return (
-    <div className="bg-black h-auto min-h-screen relative caret-transparent  " id="Projects">
+    <div className="bg-black h-auto min-h-auto relative caret-transparent  " id="Projects">
       {/* About scshn */}
       <div className="flex flex-row items-center justify-center pt-10.75 lg:pt-30 lg:gap-4">
         <div className="relative">
@@ -58,7 +58,7 @@ export default function ProjectSection() {
         ))}
       </div>{" "}
       <a href="#CodeOrgProject">
-        <div className="flex justify-center">
+        <div className="flex justify-center ">
           <ArrowDownFromLine
             className={`mt-6 lg:mt-15 text-lime-600 size-6 lg:size-10 mx-auto hover:cursor-pointer transition-all duration-500 ease-in-out hover:scale-110 ${
               expanded ? "rotate-180" : "rotate-0"
