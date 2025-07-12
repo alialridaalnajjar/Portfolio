@@ -10,7 +10,7 @@ export default function ArticlePage() {
   return (
     <div>
       {article.title}
-      {article.img}
+      {article.setOfImages?.image1}
       {article.description}
     </div>
   );

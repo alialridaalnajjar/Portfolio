@@ -14,28 +14,28 @@ export function RetroPopup() {
   return (
     <div className="fixed inset-0 bg-transparent bg-opacity-75 flex items-center justify-center z-50 p-4 font-mono">
       <div className="bg-gradient-to-br from-gray-700 to-gray-900 border-4 border-gray-500 rounded-lg shadow-retro max-w-sm w-full md:max-w-md lg:max-w-lg overflow-hidden animate-fade-in">
-        <div className="flex items-center justify-between bg-gray-600 border-b-2 border-gray-500 p-3 cursor-grab">
+        <div className="flex items-center justify-between bg-gray-600 border-b-2 border-gray-500 p-3 lg:p-4 cursor-grab">
           <div className="flex items-center">
-            <div className="w-4 h-4 bg-blue-400 border border-blue-300 rounded-sm mr-2"></div>
-            <span className="text-white text-sm font-bold uppercase tracking-wider">
+            <div className="w-4 h-4 lg:w-5 lg:h-5 bg-blue-400 border border-blue-300 rounded-sm mr-2"></div>
+            <span className="text-white text-sm lg:text-base font-bold uppercase tracking-wider">
               SYSTEM MESSAGE
             </span>
           </div>
           <button
             onClick={handlePopupClose}
-            className="bg-red-500 hover:bg-red-600 text-white font-bold text-xs w-6 h-6 flex items-center justify-center rounded-sm border border-red-400 shadow-sm transition duration-200 ease-in-out"
+            className="bg-red-500 hover:bg-red-600 text-white font-bold text-xs lg:text-sm w-6 h-6 lg:w-7 lg:h-7 flex items-center justify-center rounded-sm border border-red-400 shadow-sm transition duration-200 ease-in-out"
             title="Close Window"
           >
             X
           </button>
         </div>
 
-        <div className="p-6 bg-gray-800 text-gray-200 text-sm leading-relaxed">
-          <p className="mb-4">
+        <div className="p-6 lg:p-8 bg-gray-800 text-gray-200 text-sm lg:text-base leading-relaxed">
+          <p className="mb-4 lg:mb-5">
             <span className="text-green-400">[STATUS]</span> Initializing
             portfolio system...
           </p>
-          <p className="mb-4">
+          <p className="mb-4 lg:mb-5">
             <span className="text-yellow-400">[ALERT]</span> Welcome, user! This
             is a simulated interface designed to showcase my skills and
             projects.
@@ -46,10 +46,10 @@ export function RetroPopup() {
           </p>
         </div>
 
-        <div className="bg-gray-700 border-t-2 border-gray-600 p-3 text-right">
+        <div className="bg-gray-700 border-t-2 border-gray-600 p-3 lg:p-4 text-right">
           <button
             onClick={handlePopupClose}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold text-xs px-4 py-2 rounded-md border border-blue-400 shadow-md transition duration-200 ease-in-out"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold text-xs lg:text-sm px-4 py-2 lg:px-5 lg:py-2.5 rounded-md border border-blue-400 shadow-md transition duration-200 ease-in-out"
           >
             OK
           </button>
