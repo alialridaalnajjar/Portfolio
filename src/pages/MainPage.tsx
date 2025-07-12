@@ -102,19 +102,22 @@ export default function MainPage() {
                 className={`menu-item ${
                   isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
                 }`}
+                onClick={() => handleNavClick()}
                 style={{ animationDelay: isClosing ? "0.1s" : "0.3s" }}
               >
                 Projects
               </div>
             </a>
+            <a href="#Certificates">
             <div
               className={`menu-item ${
                 isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
               }`}
+              onClick={() => handleNavClick()}
               style={{ animationDelay: isClosing ? "0.15s" : "0.4s" }}
             >
               Certificates
-            </div>
+            </div></a>
             <div
               className={`menu-item ${
                 isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
@@ -126,7 +129,7 @@ export default function MainPage() {
             <div
               className={`menu-item ${
                 isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-              }`}
+              }`}onClick={() => handleNavClick()}
               style={{ animationDelay: isClosing ? "0.25s" : "0.6s" }}
             >
               Contact
@@ -142,7 +145,9 @@ export default function MainPage() {
             <img
               src={musicPlaying ? awake : sleep}
               alt="Ali's Profile"
-              className="relative w-32 h-32 lg:w-48 lg:h-48 rounded-3xl object-cover border-4 border-white/20 shadow-2xl hover:scale-105 transition-transform duration-300"
+              className={`relative w-32 h-32 lg:w-48 lg:h-48 rounded-3xl object-cover border-4 border-white/20 shadow-2xl hover:scale-105 transition-transform duration-300 ${
+                !musicPlaying ? "pt-10" : ""
+              }`}
             />
           </div>
 
@@ -257,8 +262,6 @@ export default function MainPage() {
           color: #60a5fa;
         }
       `}</style>
-
-      
     </div>
   );
 }

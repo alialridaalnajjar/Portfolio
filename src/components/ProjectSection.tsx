@@ -34,7 +34,10 @@ export default function ProjectSection() {
   ];
 
   return (
-    <div className="bg-black h-auto min-h-auto relative caret-transparent  " id="Projects">
+    <div
+      className="bg-black h-auto min-h-auto relative caret-transparent  "
+      id="Projects"
+    >
       {/* About scshn */}
       <div className="flex flex-row items-center justify-center pt-10.75 lg:pt-30 lg:gap-4">
         <div className="relative">

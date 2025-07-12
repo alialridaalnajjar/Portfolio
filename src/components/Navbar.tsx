@@ -105,13 +105,13 @@ export default function Navbar({
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
-
+<a href="#Certificates">
         <div className="relative group cursor-pointer">
           <span className="transition-colors duration-300 group-hover:text-blue-300">
             Certificates
           </span>
           <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
-        </div>
+        </div></a>
         <Link to="/ArticleMenuPage">
           <div className="relative group cursor-pointer">
             <span className="transition-colors duration-300 group-hover:text-blue-300">
