@@ -29,7 +29,7 @@ export default function ArticleSection() {
   }
 
   return (
-    <div className="flex min-h-auto items-start justify-center max-w-full bg-black  p-4 lg:p-8 caret-transparent w-full ">
+    <div className="flex min-h-auto items-start justify-center max-w-full bg-black  p-4 lg:p-8 caret-transparent w-full " id="Articles">
       <div className="w-full max-w-md lg: lg:max-w-lg">
         {/* Simple Articles Button */}
         <div className="mb-8 lg:max-w-full">

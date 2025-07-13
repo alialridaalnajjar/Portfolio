@@ -13,6 +13,7 @@ export default function MainPage() {
   const [musicPlaying, setMusicPlaying] = React.useState(false);
   const [navClicked, setNavClicked] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
+  const [isNavOpen, setIsNavOpen] = React.useState(false); 
 
   const handClickSound = () => {
     const clickedAudio = new Audio("/portfolioClick.mp3");
@@ -24,6 +25,7 @@ export default function MainPage() {
 
   const handleNavClick = () => {
     if (navClicked) {
+      setIsNavOpen(!isNavOpen)
       // Start closing animation
       setIsClosing(true);
       setTimeout(() => {
@@ -64,6 +66,8 @@ export default function MainPage() {
       <div className="absolute inset-0 bg-black/20 lg:bg-black/60 z-10"></div>
 
       <Navbar
+      isNavOpen={isNavOpen}
+      setIsNavOpen={setIsNavOpen}
         handClickSound={handClickSound}
         handleNavClick={handleNavClick}
         musicPlaying={musicPlaying}
@@ -121,14 +125,15 @@ export default function MainPage() {
                 Certificates
               </div>
             </a>
+             <a href="#Articles">
             <div
               className={`menu-item ${
                 isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
               }`}
-              style={{ animationDelay: isClosing ? "0.2s" : "0.5s" }}
+              style={{ animationDelay: isClosing ? "0.2s" : "0.5s" }}  onClick={() => handleNavClick()}
             >
               Articles
-            </div>
+            </div></a>
             <div
               className={`menu-item ${
                 isClosing ? "animate-fade-out-down" : "animate-fade-in-up"

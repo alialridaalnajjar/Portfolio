@@ -1,7 +1,6 @@
-import { Menu, Volume2, VolumeX } from "lucide-react";
+import { Menu, Volume2, VolumeX, X } from "lucide-react";
 import React from "react";
 import { IoVolumeMediumSharp, IoVolumeMuteSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
 import type { ClickSoundType } from "../types/ClickSoundType";
 
 export default function Navbar({
@@ -9,7 +8,9 @@ export default function Navbar({
   handleNavClick,
   musicPlaying,
   setMusicPlaying,
-}: ClickSoundType) {
+  setIsNavOpen,
+  isNavOpen
+}: ClickSoundType & {setIsNavOpen: React.Dispatch<React.SetStateAction<boolean>>, isNavOpen: boolean}) {
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
 
   React.useEffect(() => {
@@ -73,8 +74,14 @@ export default function Navbar({
     }
   };
 
+  // Update handleNavClick to toggle state
+  const handleMenuClick = () => {
+    setIsNavOpen(!isNavOpen);
+    handleNavClick(); // Call the original function
+  };
+
   return (
-    <div className="caret-transparent bg-transparent fixed top-0 left-0 w-full z-50 flex items-center justify-between p-4 backdrop-blur-md  lg:backdrop-blur-none">
+    <div className="caret-transparent bg-transparent fixed top-0 left-0 w-full z-50 flex items-center justify-between p-4 backdrop-blur-md lg:backdrop-blur-none">
       <a href="#">
         <div className="text-white font-kick  lg:hidden font-extralight">
           A. Najjar
@@ -105,21 +112,22 @@ export default function Navbar({
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
-<a href="#Certificates">
-        <div className="relative group cursor-pointer">
-          <span className="transition-colors duration-300 group-hover:text-blue-300">
-            Certificates
-          </span>
-          <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
-        </div></a>
-        <Link to="/ArticleMenuPage">
+        <a href="#Certificates">
+          <div className="relative group cursor-pointer">
+            <span className="transition-colors duration-300 group-hover:text-blue-300">
+              Certificates
+            </span>
+            <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
+          </div>
+        </a>
+        <a href="#Articles">
           <div className="relative group cursor-pointer">
             <span className="transition-colors duration-300 group-hover:text-blue-300">
               Articles
             </span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
-        </Link>
+        </a>
 
         <div className="relative group cursor-pointer">
           <span className="transition-colors duration-300 group-hover:text-blue-300">
@@ -130,15 +138,32 @@ export default function Navbar({
       </div>
 
       <div className="flex items-center gap-5 lg:gap-50 lg:mx-5 lg:hidden">
-        <div onClick={handleMusicToggle} className="cursor-pointer text-white ">
+        <div onClick={handleMusicToggle} className="cursor-pointer text-white">
           {musicPlaying ? (
             <IoVolumeMediumSharp size={25} className="lg:size-10" />
           ) : (
             <IoVolumeMuteSharp size={25} className="lg:size-10" />
           )}
         </div>
-        <div className="cursor-pointer text-white" onClick={handleNavClick}>
-          <Menu size={25} className="lg:size-10" />
+
+        {/* Animated Hamburger Menu */}
+        <div
+          className={`cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-110 ${
+            isNavOpen ? "text-blue-400 rotate-90" : "text-white"
+          }`}
+          onClick={handleMenuClick}
+        >
+          {isNavOpen ? (
+            <X
+              size={25}
+              className="lg:size-10 transition-all duration-300 ease-in-out animate-pulse"
+            />
+          ) : (
+            <Menu
+              size={25}
+              className="lg:size-10 transition-all duration-300 ease-in-out"
+            />
+          )}
         </div>
       </div>
       <style>{`
