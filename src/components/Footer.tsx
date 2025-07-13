@@ -74,7 +74,7 @@ export function Footer() {
               <span className="sr-only">Email</span>
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/alialridaalnajjar"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-400 hover:text-green-400 transition-colors duration-200"
@@ -84,14 +84,14 @@ export function Footer() {
               <span className="sr-only">GitHub</span>
             </a>
             <a
-              href="https://aedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/ali-al-najjar-88a801324/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-400 hover:text-green-400 transition-colors duration-200"
               aria-label="aedIn"
             >
               <LuLinkedin className="w-7 h-7 lg:w-8 lg:h-8" />
-              <span className="sr-only">aedIn</span>
+              <span className="sr-only">LinkedIn</span>
             </a>
           </div>
         </div>

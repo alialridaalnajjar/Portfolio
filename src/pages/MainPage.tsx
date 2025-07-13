@@ -134,6 +134,7 @@ export default function MainPage() {
             >
               Articles
             </div></a>
+            <a href="#Contact">
             <div
               className={`menu-item ${
                 isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
@@ -142,7 +143,7 @@ export default function MainPage() {
               style={{ animationDelay: isClosing ? "0.25s" : "0.6s" }}
             >
               Contact
-            </div>
+            </div></a>
           </div>
         </div>
       )}

@@ -95,7 +95,7 @@ export default function QuoteGenerator() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-black p-4 w-full caret-transparent" >
+    <div className="flex flex-col items-center min-h-auto pb-40 lg:pb-40 bg-black p-4 w-full caret-transparent" >
       <Card className="w-full max-w-sm md:max-w-md lg:max-w-lg bg-gray-950 text-white border-blue-700 border-2 shadow-2xl rounded-2xl p-6">
         <CardHeader className="pb-6">
           <CardTitle className="text-3xl font-extrabold text-blue-500 text-center tracking-wide">

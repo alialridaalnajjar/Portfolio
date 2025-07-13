@@ -1,12 +1,13 @@
+import { ContactMeSection } from "@/components/ContactMeSection";
+import { Footer } from "@/components/Footer";
 import ProjectSection from "@/components/ProjectSection";
 import ServiceSection from "@/components/ServiceSection";
 import { Certificates } from "@/data/certificates";
+import QuoteGenerator from "@/secondaryComponents/QuoteGenerator";
 import { Timeline } from "@/secondaryComponents/TimeLine";
+import VerticalLine from "@/secondaryComponents/VerticalLine";
 import ArticleSection from "./ArticleSection";
 import MainPage from "./MainPage";
-import QuoteGenerator from "@/secondaryComponents/QuoteGenerator";
-import VerticalLine from "@/secondaryComponents/VerticalLine";
-import { Footer } from "@/components/Footer";
 export default function HomePage() {
   return (
     <div className="h-auto min-h-auto">
@@ -19,6 +20,7 @@ export default function HomePage() {
         <VerticalLine />
         <QuoteGenerator />
       </div>
+      <ContactMeSection />
       <Footer />
     </div>
   );
