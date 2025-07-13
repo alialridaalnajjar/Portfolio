@@ -5,9 +5,9 @@ import React from "react";
 import { TbFileCv } from "react-icons/tb";
 import CV from "../assets/AliAlNajjarCV.pdf";
 import awake from "../assets/AnimationSheet_Character (1).gif";
-import lgVid from "../assets/HorizontalBG.mp4";
+import lgVid from "../assets/HorizontalBGCompressed.mp4";
 import sleep from "../assets/sleepyAvatar.gif";
-import bgVid from "../assets/VerticalBg.mp4";
+import bgVid from "../assets/VerticalBgCompressed.mp4";
 
 export default function MainPage() {
   const [musicPlaying, setMusicPlaying] = React.useState(false);
@@ -40,6 +40,7 @@ export default function MainPage() {
       <RetroPopup />
 
       <video
+        preload="auto"
         autoPlay
         loop
         muted
@@ -50,6 +51,7 @@ export default function MainPage() {
       </video>
 
       <video
+        preload="auto"
         autoPlay
         loop
         muted
@@ -109,15 +111,16 @@ export default function MainPage() {
               </div>
             </a>
             <a href="#Certificates">
-            <div
-              className={`menu-item ${
-                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-              }`}
-              onClick={() => handleNavClick()}
-              style={{ animationDelay: isClosing ? "0.15s" : "0.4s" }}
-            >
-              Certificates
-            </div></a>
+              <div
+                className={`menu-item ${
+                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+                }`}
+                onClick={() => handleNavClick()}
+                style={{ animationDelay: isClosing ? "0.15s" : "0.4s" }}
+              >
+                Certificates
+              </div>
+            </a>
             <div
               className={`menu-item ${
                 isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
@@ -129,7 +132,8 @@ export default function MainPage() {
             <div
               className={`menu-item ${
                 isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-              }`}onClick={() => handleNavClick()}
+              }`}
+              onClick={() => handleNavClick()}
               style={{ animationDelay: isClosing ? "0.25s" : "0.6s" }}
             >
               Contact

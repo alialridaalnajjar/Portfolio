@@ -12,7 +12,7 @@ export default function ArticleSection() {
   const handleMainToggle = () => {
     setShowChatSection(!showChatSection)
     if (!showChatSection) {
-      // Reset chat state when opening
+      // Reset Chat state when opening!!
       setIsOpen(false)
       setShowMessages(false)
     }
@@ -21,7 +21,7 @@ export default function ArticleSection() {
   const handleChatToggle = () => {
     setIsOpen(!isOpen)
     if (!isOpen) {
-      // Delay showing messages for a cool effect
+      // Delay howing messages for a cool effect
       setTimeout(() => setShowMessages(true), 300)
     } else {
       setShowMessages(false)
@@ -29,7 +29,7 @@ export default function ArticleSection() {
   }
 
   return (
-    <div className="flex min-h-auto items-center justify-center bg-black p-4 lg:p-8 caret-transparent">
+    <div className="flex min-h-auto items-start justify-center max-w-full bg-black  p-4 lg:p-8 caret-transparent w-full ">
       <div className="w-full max-w-md lg: lg:max-w-lg">
         {/* Simple Articles Button */}
         <div className="mb-8 lg:max-w-full">
@@ -67,7 +67,7 @@ export default function ArticleSection() {
           </button>
         </div>
 
-        {/* Chat Section - Only shows when main button is clicked */}
+        {/* Chat Section */}
         {showChatSection && (
           <div className="animate-in slide-in-from-top duration-500">
             {/* Phone mockup container */}

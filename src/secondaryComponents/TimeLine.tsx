@@ -17,7 +17,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 100%"],
+    offset: ["start 10%", "end 100    %"],
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
@@ -25,7 +25,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-black font-sans px-4 lg:px-10 h-auto lg:h-auto caret-transparent"
+      className="w-full bg-black font-sans px-4 lg:px-10 h-auto lg:h-auto caret-transparent relative -z-10"
       ref={containerRef}
       id="Certificates"
     >
@@ -61,7 +61,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 </h3>
               </div>
 
-              <div className="relative pl-16 pr-2 w-full lg:pl-4 lg:pr-4">
+              <div className="relative pl-16 pr-2 w-full lg:pl-4 lg:pr-4 ">
                 <h3 className="block text-xl mb-3 text-left font-bold text-blue-200 lg:hidden">
                   {item.title}
                 </h3>
@@ -75,13 +75,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                   </p>
                 </div>
 
-                <div className="w-full max-w-md mx-auto lg:max-w-lg">
+                <div className="w-full max-w-md mx-auto lg:max-w-lg ">
                   <img
                     src={item.imageUrl || "/placeholder.svg"}
                     alt={item.imageAlt}
                     width={400}
                     height={300}
-                    className="w-full h-52 rounded-lg object-cover shadow-[0_0_24px_rgba(59,_130,_246,_0.15),_0_1px_1px_rgba(59,_130,_246,_0.1),_0_0_0_1px_rgba(59,_130,_246,_0.2),_0_0_4px_rgba(59,_130,_246,_0.2),_0_16px_68px_rgba(29,_78,_216,_0.1),_0_1px_0_rgba(147,_197,_253,_0.2)_inset] border border-blue-500/50 lg:h-78"
+                    className=" w-full h-52 rounded-lg object-cover shadow-[0_0_24px_rgba(59,_130,_246,_0.15),_0_1px_1px_rgba(59,_130,_246,_0.1),_0_0_0_1px_rgba(59,_130,_246,_0.2),_0_0_4px_rgba(59,_130,_246,_0.2),_0_16px_68px_rgba(29,_78,_216,_0.1),_0_1px_0_rgba(147,_197,_253,_0.2)_inset] border border-blue-500/50 lg:h-78"
                   />
                 </div>
               </div>

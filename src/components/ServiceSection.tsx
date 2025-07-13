@@ -1,13 +1,13 @@
-import css from "../assets/languagesImg/css-3.png";
+import css from "../assets/languagesImg/css3.svg";
 import git from "../assets/languagesImg/git.svg";
-import html from "../assets/languagesImg/html.png";
+import html from "../assets/languagesImg/html.svg";
 import img from "../assets/languagesImg/img1Guest.png";
-import java from "../assets/languagesImg/java.png";
-import javascript from "../assets/languagesImg/js.png";
+import java from "../assets/languagesImg/java.svg";
+import javascript from "../assets/languagesImg/javascript.svg";
 import postgreSql from "../assets/languagesImg/postgresql.svg";
 import react from "../assets/languagesImg/react.svg";
 import tailwindCss from "../assets/languagesImg/tailwind-css.svg";
-import typescript from "../assets/languagesImg/typescript.png";
+import typescript from "../assets/languagesImg/typescript.svg";
 
 export default function ServiceSection() {
   const languages = [
