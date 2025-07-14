@@ -12,7 +12,7 @@ export function RetroPopup() {
   }
 
   return (
-    <div className="fixed inset-0 bg-transparent bg-opacity-75 flex items-center justify-center z-50 p-4 font-mono">
+    <div  className=" fixed inset-0 bg-transparent bg-opacity-75 flex items-center justify-center z-50 p-4 font-mono">
       <div className="bg-gradient-to-br from-gray-700 to-gray-900 border-4 border-gray-500 rounded-lg shadow-retro max-w-sm w-full md:max-w-md lg:max-w-lg overflow-hidden animate-fade-in">
         <div className="flex items-center justify-between bg-gray-600 border-b-2 border-gray-500 p-3 lg:p-4 cursor-grab">
           <div className="flex items-center">

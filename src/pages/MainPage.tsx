@@ -8,12 +8,37 @@ import awake from "../assets/AnimationSheet_Character (1).gif";
 import lgVid from "../assets/HorizontalBGCompressed.mp4";
 import sleep from "../assets/sleepyAvatar.gif";
 import bgVid from "../assets/VerticalBgCompressed.mp4";
+import AudioManager from "../utils/AudioManager";
 
-export default function MainPage() {
-  const [musicPlaying, setMusicPlaying] = React.useState(false);
-  const [navClicked, setNavClicked] = React.useState(false);
-  const [isClosing, setIsClosing] = React.useState(false);
-  const [isNavOpen, setIsNavOpen] = React.useState(false); 
+// Add the missing props interface
+interface MainPageProps {
+  musicPlaying: boolean;
+  setMusicPlaying: (playing: boolean) => void;
+  navClicked: boolean;
+  setNavClicked: (clicked: boolean) => void;
+  isClosing: boolean;
+  setIsClosing: (closing: boolean) => void;
+}
+
+export default function MainPage({ 
+  musicPlaying, 
+  setMusicPlaying, 
+  navClicked, 
+  setNavClicked, 
+  isClosing, 
+  setIsClosing 
+}: MainPageProps) {
+  
+  // Initialize audio and subscribe to changes
+  React.useEffect(() => {
+    AudioManager.initialize();
+    
+    const unsubscribe = AudioManager.subscribe((isPlaying) => {
+      setMusicPlaying(isPlaying);
+    });
+
+    return unsubscribe;
+  }, [setMusicPlaying]);
 
   const handClickSound = () => {
     const clickedAudio = new Audio("/portfolioClick.mp3");
@@ -25,13 +50,11 @@ export default function MainPage() {
 
   const handleNavClick = () => {
     if (navClicked) {
-      setIsNavOpen(!isNavOpen)
-      // Start closing animation
       setIsClosing(true);
       setTimeout(() => {
         setNavClicked(false);
         setIsClosing(false);
-      }, 300); // Match animation duration
+      }, 300);
     } else {
       setNavClicked(true);
     }
@@ -41,109 +64,55 @@ export default function MainPage() {
     <div className="relative h-screen overflow-hidden caret-transparent">
       <RetroPopup />
 
-      <video
-        preload="auto"
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute w-full h-full object-cover z-0 lg:hidden"
-      >
+      <video preload="auto" autoPlay loop muted playsInline className="absolute w-full h-full object-cover z-0 lg:hidden">
         <source src={bgVid} type="video/mp4" />
       </video>
 
-      <video
-        preload="auto"
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute w-full h-full object-cover -z-10 hidden lg:block"
-      >
+      <video preload="auto" autoPlay loop muted playsInline className="absolute w-full h-full object-cover -z-10 hidden lg:block">
         <source src={lgVid} type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-black/20 lg:bg-black/60 z-10"></div>
 
+      {/* FIXED:35rtw4s Remove extra props */}
       <Navbar
-      isNavOpen={isNavOpen}
-      setIsNavOpen={setIsNavOpen}
         handClickSound={handClickSound}
         handleNavClick={handleNavClick}
-        musicPlaying={musicPlaying}
-        setMusicPlaying={setMusicPlaying}
       />
 
       {navClicked && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black/20 backdrop-blur-xs z-30 ">
-          <div
-            className={`relative z-20 flex flex-col items-center justify-center h-fit pt-20 lg:hidden pb-3 bg-black/50 backdrop-blur-md text-white gap-4 caret-transparent ${
-              isClosing ? "animate-slide-up" : "animate-slide-down"
-            }`}
-          >
+        <div className="fixed top-0 left-0 w-full h-full bg-black/20 backdrop-blur-xs z-30">
+          <div className={`relative z-20 flex flex-col items-center justify-center h-fit pt-20 lg:hidden pb-3 bg-black/50 backdrop-blur-md text-white gap-4 caret-transparent ${isClosing ? "animate-slide-up" : "animate-slide-down"}`}>
             <a href="#">
-              <div
-                className={`menu-item ${
-                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-                }`}
-                style={{ animationDelay: isClosing ? "0s" : "0.1s" }}
-                onClick={() => handleNavClick()}
-              >
+              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} style={{ animationDelay: isClosing ? "0s" : "0.1s" }} onClick={() => handleNavClick()}>
                 Main
               </div>
             </a>
             <a href="#About">
-              <div
-                className={`menu-item ${
-                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-                }`}
-                style={{ animationDelay: isClosing ? "0.05s" : "0.2s" }}
-                onClick={() => handleNavClick()}
-              >
+              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} style={{ animationDelay: isClosing ? "0.05s" : "0.2s" }} onClick={() => handleNavClick()}>
                 Services
               </div>
             </a>
             <a href="#Projects">
-              <div
-                className={`menu-item ${
-                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-                }`}
-                onClick={() => handleNavClick()}
-                style={{ animationDelay: isClosing ? "0.1s" : "0.3s" }}
-              >
+              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} onClick={() => handleNavClick()} style={{ animationDelay: isClosing ? "0.1s" : "0.3s" }}>
                 Projects
               </div>
             </a>
             <a href="#Certificates">
-              <div
-                className={`menu-item ${
-                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-                }`}
-                onClick={() => handleNavClick()}
-                style={{ animationDelay: isClosing ? "0.15s" : "0.4s" }}
-              >
+              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} onClick={() => handleNavClick()} style={{ animationDelay: isClosing ? "0.15s" : "0.4s" }}>
                 Certificates
               </div>
             </a>
-             <a href="#Articles">
-            <div
-              className={`menu-item ${
-                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-              }`}
-              style={{ animationDelay: isClosing ? "0.2s" : "0.5s" }}  onClick={() => handleNavClick()}
-            >
-              Articles
-            </div></a>
+            <a href="#Articles">
+              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} style={{ animationDelay: isClosing ? "0.2s" : "0.5s" }} onClick={() => handleNavClick()}>
+                Articles
+              </div>
+            </a>
             <a href="#Contact">
-            <div
-              className={`menu-item ${
-                isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
-              }`}
-              onClick={() => handleNavClick()}
-              style={{ animationDelay: isClosing ? "0.25s" : "0.6s" }}
-            >
-              Contact
-            </div></a>
+              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} onClick={() => handleNavClick()} style={{ animationDelay: isClosing ? "0.25s" : "0.6s" }}>
+                Contact
+              </div>
+            </a>
           </div>
         </div>
       )}
@@ -155,9 +124,7 @@ export default function MainPage() {
             <img
               src={musicPlaying ? awake : sleep}
               alt="Ali's Profile"
-              className={`relative w-32 h-32 lg:w-48 lg:h-48 rounded-3xl object-cover border-4 border-white/20 shadow-2xl hover:scale-105 transition-transform duration-300 ${
-                !musicPlaying ? "pt-10" : ""
-              }`}
+              className={`relative w-32 h-32 lg:w-48 lg:h-48 rounded-3xl object-cover border-4 border-white/20 shadow-2xl hover:scale-105 transition-transform duration-300 ${!musicPlaying ? "pt-10" : ""}`}
             />
           </div>
 
@@ -205,67 +172,30 @@ export default function MainPage() {
 
       <style>{`
         @keyframes slide-down {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes slide-up {
-          from {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          to {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
+          from { opacity: 1; transform: translateY(0); }
+          to { opacity: 0; transform: translateY(-20px); }
         }
 
         @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fade-out-down {
-          from {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          to {
-            opacity: 0;
-            transform: translateY(20px);
-          }
+          from { opacity: 1; transform: translateY(0); }
+          to { opacity: 0; transform: translateY(20px); }
         }
 
-        .animate-slide-down {
-          animation: slide-down 0.3s ease-out forwards;
-        }
-
-        .animate-slide-up {
-          animation: slide-up 0.3s ease-out forwards;
-        }
-
-        .animate-fade-in-up {
-          animation: fade-in-up 0.4s ease-out forwards;
-          opacity: 0;
-        }
-
-        .animate-fade-out-down {
-          animation: fade-out-down 0.3s ease-out forwards;
-        }
-
-      
+        .animate-slide-down { animation: slide-down 0.3s ease-out forwards; }
+        .animate-slide-up { animation: slide-up 0.3s ease-out forwards; }
+        .animate-fade-in-up { animation: fade-in-up 0.4s ease-out forwards; opacity: 0; }
+        .animate-fade-out-down { animation: fade-out-down 0.3s ease-out forwards; }
+        
         .menu-item:hover {
           background-color: rgba(59, 130, 246, 0.2);
           transform: translateX(10px);

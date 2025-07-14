@@ -2,140 +2,76 @@ import { Menu, Volume2, VolumeX, X } from "lucide-react";
 import React from "react";
 import { IoVolumeMediumSharp, IoVolumeMuteSharp } from "react-icons/io5";
 import type { ClickSoundType } from "../types/ClickSoundType";
+import AudioManager from "../utils/AudioManager";
 
 export default function Navbar({
   handClickSound,
   handleNavClick,
-  musicPlaying,
-  setMusicPlaying,
-  setIsNavOpen,
-  isNavOpen,
-}: ClickSoundType & {
-  setIsNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  isNavOpen: boolean;
-}) {
-  const audioRef = React.useRef<HTMLAudioElement | null>(null);
+}: ClickSoundType) {
+  const [isNavOpen, setIsNavOpen] = React.useState(false);
+  const [musicPlaying, setMusicPlaying] = React.useState(AudioManager.getIsPlaying());
 
+  // Subscribe to music state changes
   React.useEffect(() => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio("/music.mp3");
-      audioRef.current.loop = true;
-      audioRef.current.volume = 0.1;
-    }
+    const unsubscribe = AudioManager.subscribe((isPlaying) => {
+      setMusicPlaying(isPlaying);
+    });
 
-    const audio = audioRef.current;
-
-    const tryAutoPlay = () => {
-      audio
-        .play()
-        .then(() => {
-          setMusicPlaying(true);
-          console.log("Music auto-started");
-        })
-        .catch((error) => {
-          console.log("Auto-play blocked by browser:", error);
-          setMusicPlaying(false);
-
-          const handleFirstClick = () => {
-            audio
-              .play()
-              .then(() => {
-                setMusicPlaying(true);
-                console.log("Music started after user interaction");
-              })
-              .catch(console.error);
-            document.removeEventListener("click", handleFirstClick);
-          };
-
-          document.addEventListener("click", handleFirstClick);
-        });
-    };
-
-    tryAutoPlay();
+    return unsubscribe;
   }, []);
 
   const handleMusicToggle = () => {
     handClickSound();
-    if (!audioRef.current) return;
-
-    const audio = audioRef.current;
-
-    if (!musicPlaying) {
-      audio
-        .play()
-        .then(() => {
-          setMusicPlaying(true);
-          console.log("Music playing");
-        })
-        .catch((error) => {
-          console.log("Audio failed:", error);
-        });
-    } else {
-      audio.pause();
-      setMusicPlaying(false);
-      console.log("Music paused");
-    }
+    AudioManager.toggle();
   };
 
-  // Update handleNavClick to toggle state
   const handleMenuClick = () => {
     setIsNavOpen(!isNavOpen);
-    handleNavClick(); // Call the original function
+    handleNavClick();
   };
 
   return (
     <div className="caret-transparent bg-transparent fixed top-0 left-0 w-full z-50 flex items-center justify-between p-4 backdrop-blur-md lg:backdrop-blur-none">
       <a href="#">
-        <div className="text-white font-kick  lg:hidden font-extralight">
+        <div className="text-white font-kick lg:hidden font-extralight">
           A. Najjar
         </div>
       </a>
-      <div className=" hidden lg:flex items-center justify-between w-full max-w-4xl mx-auto text-white font-bold mt-5  px-4 lg:bg-black/50 lg:rounded-lg lg:p-4 ">
+      
+      <div className="hidden lg:flex items-center justify-between w-full max-w-4xl mx-auto text-white font-bold mt-5 px-4 lg:bg-black/50 lg:rounded-lg lg:p-4">
         <a href="#">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">
-              Main
-            </span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">Main</span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
         <a href="#About">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">
-              Services
-            </span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">Services</span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
         <a href="#Projects">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">
-              Projects
-            </span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">Projects</span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
         <a href="#Certificates">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">
-              Certificates
-            </span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">Certificates</span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
         <a href="#Articles">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">
-              Articles
-            </span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">Articles</span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
         <a href="#Contact">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">
-              Contact
-            </span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">Contact</span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
@@ -150,7 +86,6 @@ export default function Navbar({
           )}
         </div>
 
-        {/* Animated Hamburger Menu */}
         <div
           className={`cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-110 ${
             isNavOpen ? "text-blue-400 rotate-90" : "text-white"
@@ -158,33 +93,28 @@ export default function Navbar({
           onClick={handleMenuClick}
         >
           {isNavOpen ? (
-            <X
-              size={25}
-              className="lg:size-10 transition-all duration-300 ease-in-out animate-pulse"
-            />
+            <X size={25} className="lg:size-10 transition-all duration-300 ease-in-out animate-pulse" />
           ) : (
-            <Menu
-              size={25}
-              className="lg:size-10 transition-all duration-300 ease-in-out"
-            />
+            <Menu size={25} className="lg:size-10 transition-all duration-300 ease-in-out" />
           )}
         </div>
       </div>
+
       <style>{`
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 10px; 
-  }
-`}</style>
+        html {
+          scroll-behavior: smooth;
+          scroll-padding-top: 10px; 
+        }
+      `}</style>
 
       {musicPlaying ? (
         <Volume2
-          className="fixed bottom-1/40 left-1/160 text-blue-400 z-50  hidden lg:block size-10 -rotate-3 hover:cursor-pointer hover:scale-105"
+          className="fixed bottom-1/40 left-1/160 text-blue-400 z-50 hidden lg:block size-10 -rotate-3 hover:cursor-pointer hover:scale-105"
           onClick={handleMusicToggle}
         />
       ) : (
         <VolumeX
-          className="fixed bottom-1/40 left-1/160 text-blue-400 z-50  hidden lg:block size-10 -rotate-3 hover:cursor-pointer hover:scale-105"
+          className="fixed bottom-1/40 left-1/160 text-blue-400 z-50 hidden lg:block size-10 -rotate-3 hover:cursor-pointer hover:scale-105"
           onClick={handleMusicToggle}
         />
       )}
