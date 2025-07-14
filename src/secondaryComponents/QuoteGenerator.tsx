@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -8,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useEffect, useState } from "react";
 
 // Define a type for the quote object
 type Quote = {
@@ -82,20 +80,19 @@ export default function QuoteGenerator() {
       const randomIndex = Math.floor(Math.random() * devQuotes.length);
       setCurrentQuote(devQuotes[randomIndex]);
       setIsFading(true); // Start fade in
-    }, 300); // Match this with the transition duration
+    }, 300);
   };
 
-  // Generate a quote on initial component mount and set up auto-switching
   useEffect(() => {
     generateRandomQuote(); // Initial quote
-    const intervalId = setInterval(generateRandomQuote, 7000); // Auto-switch every 7 seconds
+    const intervalId = setInterval(generateRandomQuote, 7000);
 
-    // Cleanup function to clear the interval when the component unmounts
+    // Cleanup function to clear the interval when the component unmountsfgds
     return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <div className="flex flex-col items-center min-h-auto pb-40 lg:pb-40 bg-black p-4 w-full caret-transparent" >
+    <div className="flex flex-col items-center min-h-auto pb-40 lg:pb-40 bg-black p-4 w-full caret-transparent">
       <Card className="w-full max-w-sm md:max-w-md lg:max-w-lg bg-gray-950 text-white border-blue-700 border-2 shadow-2xl rounded-2xl p-6">
         <CardHeader className="pb-6">
           <CardTitle className="text-3xl font-extrabold text-blue-500 text-center tracking-wide">

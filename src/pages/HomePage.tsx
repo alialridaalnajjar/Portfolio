@@ -8,7 +8,6 @@ import { Timeline } from "@/secondaryComponents/TimeLine";
 import VerticalLine from "@/secondaryComponents/VerticalLine";
 import ArticleSection from "./ArticleSection";
 import MainPage from "./MainPage";
-import React from "react";
 
 interface HomePageProps {
   musicPlaying: boolean;
@@ -39,12 +38,11 @@ export default function HomePage({
   setShowMessages,
   showChatSection,
   setShowChatSection,
-  handleMusicToggle
+  handleMusicToggle,
 }: HomePageProps) {
-  
   return (
     <div className="h-auto min-h-auto">
-      <MainPage 
+      <MainPage
         musicPlaying={musicPlaying}
         setMusicPlaying={setMusicPlaying}
         navClicked={navClicked}
@@ -56,8 +54,8 @@ export default function HomePage({
       <ProjectSection />
       <Timeline data={Certificates} />
       <div className=" lg:flex lg:flex-row lg:justify-center  lg:gap-10 bg-black lg:px-40 lg:pt-20 h-auto min-h-fit">
-        <ArticleSection 
-          handleMusicToggle={handleMusicToggle} 
+        <ArticleSection
+          handleMusicToggle={handleMusicToggle}
           musicPlaying={musicPlaying}
           isOpen={isOpen}
           setIsOpen={setIsOpen}

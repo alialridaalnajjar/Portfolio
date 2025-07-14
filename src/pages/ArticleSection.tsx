@@ -1,22 +1,19 @@
-"use client"
-
-import { Link } from "react-router-dom"
-import { Articles } from "../data/Articles"
+import { Link } from "react-router-dom";
+import { Articles } from "../data/Articles";
 
 interface ArticleSectionProps {
-  onShowArticle?: (slug: string) => void
-  handleMusicToggle: () => void
-  musicPlaying: boolean
-  isOpen: boolean
-  setIsOpen: (open: boolean) => void
-  showMessages: boolean
-  setShowMessages: (show: boolean) => void
-  showChatSection: boolean
-  setShowChatSection: (show: boolean) => void
+  onShowArticle?: (slug: string) => void;
+  handleMusicToggle: () => void;
+  musicPlaying: boolean;
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+  showMessages: boolean;
+  setShowMessages: (show: boolean) => void;
+  showChatSection: boolean;
+  setShowChatSection: (show: boolean) => void;
 }
 
 export default function ArticleSection({
-  
   isOpen,
   setIsOpen,
   showMessages,
@@ -24,33 +21,37 @@ export default function ArticleSection({
   showChatSection,
   setShowChatSection,
 }: ArticleSectionProps) {
-  
-
   const handleMainToggle = () => {
-    setShowChatSection(!showChatSection)
+    setShowChatSection(!showChatSection);
     if (!showChatSection) {
       // Reset Chat state when opening!!
-      setIsOpen(false)
-      setShowMessages(false)
+      setIsOpen(false);
+      setShowMessages(false);
     }
-  }
+  };
 
   const handleChatToggle = () => {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
     if (!isOpen) {
       // Delay howing messages for a cool effect
-      setTimeout(() => setShowMessages(true), 300)
+      setTimeout(() => setShowMessages(true), 300);
     } else {
-      setShowMessages(false)
+      setShowMessages(false);
     }
-  }
+  };
 
   return (
-    <div className="flex min-h-auto items-start justify-center max-w-full bg-black  p-4 lg:p-8 caret-transparent w-full " id="Articles">
+    <div
+      className="flex min-h-auto items-start justify-center max-w-full bg-black  p-4 lg:p-8 caret-transparent w-full "
+      id="Articles"
+    >
       <div className="w-full max-w-md lg: lg:max-w-lg">
         {/* Simple Articles Button */}
         <div className="mb-8 lg:max-w-full">
-          <button onClick={handleMainToggle} className="group relative w-full flex items-center justify-between">
+          <button
+            onClick={handleMainToggle}
+            className="group relative w-full flex items-center justify-between"
+          >
             <div>
               <h2 className="text-4xl lg:text-8xl font-light text-white hover:text-blue-400 transition-colors duration-300 mb-2 text-left">
                 Articles
@@ -107,9 +108,13 @@ export default function ArticleSection({
                 <div className="h-80 lg:h-96 bg-gray-50 p-4 overflow-y-auto">
                   {/* Initial message */}
                   <div className="flex items-start space-x-2 mb-4">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs">👋</div>
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs">
+                      👋
+                    </div>
                     <div className="bg-white rounded-2xl rounded-tl-md p-3 shadow-sm max-w-xs">
-                      <p className="text-sm text-gray-800">Hey! Want to check out my latest articles?</p>
+                      <p className="text-sm text-gray-800">
+                        Hey! Want to check out my latest articles?
+                      </p>
                       <span className="text-xs text-gray-500">Just now</span>
                     </div>
                   </div>
@@ -120,8 +125,12 @@ export default function ArticleSection({
                       onClick={handleChatToggle}
                       className="bg-blue-500 hover:bg-blue-600 text-white rounded-2xl rounded-tr-md p-3 shadow-sm transition-all duration-200 max-w-xs"
                     >
-                      <p className="text-sm">{isOpen ? "Hide articles 📚" : "Show me! 🚀"}</p>
-                      <span className="text-xs text-blue-100">Tap to {isOpen ? "close" : "open"}</span>
+                      <p className="text-sm">
+                        {isOpen ? "Hide articles 📚" : "Show me! 🚀"}
+                      </p>
+                      <span className="text-xs text-blue-100">
+                        Tap to {isOpen ? "close" : "open"}
+                      </span>
                     </button>
                   </div>
 
@@ -134,7 +143,9 @@ export default function ArticleSection({
                           className="flex items-start space-x-2"
                           style={{
                             animationDelay: `${index * 200}ms`,
-                            animation: `slideUp 0.5s ease-out ${index * 200}ms both`,
+                            animation: `slideUp 0.5s ease-out ${
+                              index * 200
+                            }ms both`,
                           }}
                         >
                           <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-xs font-bold text-white">
@@ -145,10 +156,16 @@ export default function ArticleSection({
                               <h4 className="font-semibold text-blue-700 text-sm group-hover:text-blue-800 mb-1">
                                 {article.title}
                               </h4>
-                              <p className="text-xs text-gray-600 mb-2">{article.description}</p>
+                              <p className="text-xs text-gray-600 mb-2">
+                                {article.description}
+                              </p>
                               <div className="flex items-center justify-between">
-                                <span className="text-xs text-gray-500">2 min read</span>
-                                <span className="text-xs text-blue-500 group-hover:text-blue-600">Read more →</span>
+                                <span className="text-xs text-gray-500">
+                                  2 min read
+                                </span>
+                                <span className="text-xs text-blue-500 group-hover:text-blue-600">
+                                  Read more →
+                                </span>
                               </div>
                             </div>
                           </Link>
@@ -181,7 +198,9 @@ export default function ArticleSection({
                 {/* Chat input (decorative) */}
                 <div className="bg-white border-t border-gray-200 p-3 flex items-center space-x-2">
                   <div className="flex-1 bg-gray-100 rounded-full px-4 py-2">
-                    <span className="text-sm text-gray-500">More articles coming soon...</span>
+                    <span className="text-sm text-gray-500">
+                      More articles coming soon...
+                    </span>
                   </div>
                   <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm">📤</span>
@@ -195,7 +214,7 @@ export default function ArticleSection({
           </div>
         )}
 
-        <style >{`
+        <style>{`
           @keyframes slideUp {
             from {
               opacity: 0;
@@ -208,9 +227,6 @@ export default function ArticleSection({
           }
         `}</style>
       </div>
-
-       
-      
     </div>
-  )
+  );
 }

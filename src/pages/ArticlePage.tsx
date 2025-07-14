@@ -1,6 +1,4 @@
-"use client";
-
-import { ArrowLeft, Facebook, LinkIcon } from "lucide-react";
+import { ArrowLeft, LinkIcon } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { Articles } from "../data/Articles";
 
@@ -200,13 +198,6 @@ export default function ArticlePage() {
                 Share this article
               </span>
               <div className="flex space-x-4">
-                <button
-                  onClick={() => handleShare("facebook")}
-                  className="p-3 text-gray-500 hover:text-blue-400 hover:bg-gray-800 rounded-full transition-all duration-200"
-                  aria-label="Share on Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </button>
                 <button
                   onClick={() => handleShare("twitter")}
                   className="p-3 text-gray-500 hover:text-blue-400 hover:bg-gray-800 rounded-full transition-all duration-200"

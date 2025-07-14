@@ -20,19 +20,18 @@ interface MainPageProps {
   setIsClosing: (closing: boolean) => void;
 }
 
-export default function MainPage({ 
-  musicPlaying, 
-  setMusicPlaying, 
-  navClicked, 
-  setNavClicked, 
-  isClosing, 
-  setIsClosing 
+export default function MainPage({
+  musicPlaying,
+  setMusicPlaying,
+  navClicked,
+  setNavClicked,
+  isClosing,
+  setIsClosing,
 }: MainPageProps) {
-  
   // Initialize audio and subscribe to changes
   React.useEffect(() => {
     AudioManager.initialize();
-    
+
     const unsubscribe = AudioManager.subscribe((isPlaying) => {
       setMusicPlaying(isPlaying);
     });
@@ -64,52 +63,103 @@ export default function MainPage({
     <div className="relative h-screen overflow-hidden caret-transparent">
       <RetroPopup />
 
-      <video preload="auto" autoPlay loop muted playsInline className="absolute w-full h-full object-cover z-0 lg:hidden">
+      <video
+        preload="auto"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute w-full h-full object-cover z-0 lg:hidden"
+      >
         <source src={bgVid} type="video/mp4" />
       </video>
 
-      <video preload="auto" autoPlay loop muted playsInline className="absolute w-full h-full object-cover -z-10 hidden lg:block">
+      <video
+        preload="auto"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute w-full h-full object-cover -z-10 hidden lg:block"
+      >
         <source src={lgVid} type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-black/20 lg:bg-black/60 z-10"></div>
 
       {/* FIXED:35rtw4s Remove extra props */}
-      <Navbar
-        handClickSound={handClickSound}
-        handleNavClick={handleNavClick}
-      />
+      <Navbar handClickSound={handClickSound} handleNavClick={handleNavClick} />
 
       {navClicked && (
         <div className="fixed top-0 left-0 w-full h-full bg-black/20 backdrop-blur-xs z-30">
-          <div className={`relative z-20 flex flex-col items-center justify-center h-fit pt-20 lg:hidden pb-3 bg-black/50 backdrop-blur-md text-white gap-4 caret-transparent ${isClosing ? "animate-slide-up" : "animate-slide-down"}`}>
+          <div
+            className={`relative z-20 flex flex-col items-center justify-center h-fit pt-20 lg:hidden pb-3 bg-black/50 backdrop-blur-md text-white gap-4 caret-transparent ${
+              isClosing ? "animate-slide-up" : "animate-slide-down"
+            }`}
+          >
             <a href="#">
-              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} style={{ animationDelay: isClosing ? "0s" : "0.1s" }} onClick={() => handleNavClick()}>
+              <div
+                className={`menu-item ${
+                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+                }`}
+                style={{ animationDelay: isClosing ? "0s" : "0.1s" }}
+                onClick={() => handleNavClick()}
+              >
                 Main
               </div>
             </a>
             <a href="#About">
-              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} style={{ animationDelay: isClosing ? "0.05s" : "0.2s" }} onClick={() => handleNavClick()}>
+              <div
+                className={`menu-item ${
+                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+                }`}
+                style={{ animationDelay: isClosing ? "0.05s" : "0.2s" }}
+                onClick={() => handleNavClick()}
+              >
                 Services
               </div>
             </a>
             <a href="#Projects">
-              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} onClick={() => handleNavClick()} style={{ animationDelay: isClosing ? "0.1s" : "0.3s" }}>
+              <div
+                className={`menu-item ${
+                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+                }`}
+                onClick={() => handleNavClick()}
+                style={{ animationDelay: isClosing ? "0.1s" : "0.3s" }}
+              >
                 Projects
               </div>
             </a>
             <a href="#Certificates">
-              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} onClick={() => handleNavClick()} style={{ animationDelay: isClosing ? "0.15s" : "0.4s" }}>
+              <div
+                className={`menu-item ${
+                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+                }`}
+                onClick={() => handleNavClick()}
+                style={{ animationDelay: isClosing ? "0.15s" : "0.4s" }}
+              >
                 Certificates
               </div>
             </a>
             <a href="#Articles">
-              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} style={{ animationDelay: isClosing ? "0.2s" : "0.5s" }} onClick={() => handleNavClick()}>
+              <div
+                className={`menu-item ${
+                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+                }`}
+                style={{ animationDelay: isClosing ? "0.2s" : "0.5s" }}
+                onClick={() => handleNavClick()}
+              >
                 Articles
               </div>
             </a>
             <a href="#Contact">
-              <div className={`menu-item ${isClosing ? "animate-fade-out-down" : "animate-fade-in-up"}`} onClick={() => handleNavClick()} style={{ animationDelay: isClosing ? "0.25s" : "0.6s" }}>
+              <div
+                className={`menu-item ${
+                  isClosing ? "animate-fade-out-down" : "animate-fade-in-up"
+                }`}
+                onClick={() => handleNavClick()}
+                style={{ animationDelay: isClosing ? "0.25s" : "0.6s" }}
+              >
                 Contact
               </div>
             </a>
@@ -124,7 +174,9 @@ export default function MainPage({
             <img
               src={musicPlaying ? awake : sleep}
               alt="Ali's Profile"
-              className={`relative w-32 h-32 lg:w-48 lg:h-48 rounded-3xl object-cover border-4 border-white/20 shadow-2xl hover:scale-105 transition-transform duration-300 ${!musicPlaying ? "pt-10" : ""}`}
+              className={`relative w-32 h-32 lg:w-48 lg:h-48 rounded-3xl object-cover border-4 border-white/20 shadow-2xl hover:scale-105 transition-transform duration-300 ${
+                !musicPlaying ? "pt-10" : ""
+              }`}
             />
           </div>
 

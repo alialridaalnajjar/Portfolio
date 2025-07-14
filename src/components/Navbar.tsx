@@ -9,7 +9,9 @@ export default function Navbar({
   handleNavClick,
 }: ClickSoundType) {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
-  const [musicPlaying, setMusicPlaying] = React.useState(AudioManager.getIsPlaying());
+  const [musicPlaying, setMusicPlaying] = React.useState(
+    AudioManager.getIsPlaying()
+  );
 
   // Subscribe to music state changes
   React.useEffect(() => {
@@ -37,41 +39,53 @@ export default function Navbar({
           A. Najjar
         </div>
       </a>
-      
+
       <div className="hidden lg:flex items-center justify-between w-full max-w-4xl mx-auto text-white font-bold mt-5 px-4 lg:bg-black/50 lg:rounded-lg lg:p-4">
         <a href="#">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">Main</span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">
+              Main
+            </span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
         <a href="#About">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">Services</span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">
+              Services
+            </span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
         <a href="#Projects">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">Projects</span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">
+              Projects
+            </span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
         <a href="#Certificates">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">Certificates</span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">
+              Certificates
+            </span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
         <a href="#Articles">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">Articles</span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">
+              Articles
+            </span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
         <a href="#Contact">
           <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">Contact</span>
+            <span className="transition-colors duration-300 group-hover:text-blue-300">
+              Contact
+            </span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
@@ -93,9 +107,15 @@ export default function Navbar({
           onClick={handleMenuClick}
         >
           {isNavOpen ? (
-            <X size={25} className="lg:size-10 transition-all duration-300 ease-in-out animate-pulse" />
+            <X
+              size={25}
+              className="lg:size-10 transition-all duration-300 ease-in-out animate-pulse"
+            />
           ) : (
-            <Menu size={25} className="lg:size-10 transition-all duration-300 ease-in-out" />
+            <Menu
+              size={25}
+              className="lg:size-10 transition-all duration-300 ease-in-out"
+            />
           )}
         </div>
       </div>

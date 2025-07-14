@@ -1,4 +1,4 @@
-// singelton :( 
+// singelton :(
 class AudioManager {
   private static instance: AudioManager;
   private audio: HTMLAudioElement | null = null;
@@ -19,8 +19,9 @@ class AudioManager {
       this.audio = new Audio("/music.mp3");
       this.audio.loop = true;
       this.audio.volume = 0.1;
-      
-      this.audio.play()
+
+      this.audio
+        .play()
         .then(() => {
           this.isPlaying = true;
           this.notifyListeners();
@@ -37,7 +38,8 @@ class AudioManager {
 
   play() {
     if (this.audio && !this.isPlaying) {
-      this.audio.play()
+      this.audio
+        .play()
         .then(() => {
           this.isPlaying = true;
           this.notifyListeners();
@@ -67,7 +69,7 @@ class AudioManager {
   }
 
   // FIXED: Return a function, don't call it
-  subscribe(listener: (isPlaying: boolean) => void): (() => void) {
+  subscribe(listener: (isPlaying: boolean) => void): () => void {
     this.listeners.add(listener);
     return () => {
       this.listeners.delete(listener);
@@ -75,7 +77,7 @@ class AudioManager {
   }
 
   private notifyListeners() {
-    this.listeners.forEach(listener => listener(this.isPlaying));
+    this.listeners.forEach((listener) => listener(this.isPlaying));
   }
 }
 
