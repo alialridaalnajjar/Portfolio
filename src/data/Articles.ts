@@ -7,7 +7,7 @@ export const Articles = [
   {
     slug: "first-year-cs-reflections",
     title: "📖 Reflections of a First-Year CS Student",
-    date: "2024-07-14",
+    date: "2024-06-25",
     description:
       "A personal journey through my first year in Computer Science - from uncertainty to clarity, from basic programs to meaningful projects. Written from within the very portfolio that represents the end of this chapter.",
     articleTest: `📖 Reflections of a First-Year CS Student
@@ -70,9 +70,9 @@ Because in the end, when the music stops, the only thing that'll matter is wheth
       image1:
         "https://startupkitchen.community/wp-content/uploads/2025/05/dbe48f05-d32a-460d-a55a-f941d3d9f499_1280x726.jpg",
       image2:
-        "https://images.ctfassets.net/lzny33ho1g45/2EfZA1SZlDuZTtXIauCVBl/7b30924362cca2be72119ef5c3ac2c74/best-vibe-coding-tools-hero.jpg?fm=jpg&q=31&fit=thumb&w=1520&h=760",
-      image3:
         "https://www.pcworld.com/wp-content/uploads/2025/06/AI-vibe-coding-one-hand-is-robot-one-hand-is-human-3.jpg?quality=50&strip=all&w=1024",
+      image3:
+        "https://images.ctfassets.net/lzny33ho1g45/2EfZA1SZlDuZTtXIauCVBl/7b30924362cca2be72119ef5c3ac2c74/best-vibe-coding-tools-hero.jpg?fm=jpg&q=31&fit=thumb&w=1520&h=760",
     },
   },
 ];

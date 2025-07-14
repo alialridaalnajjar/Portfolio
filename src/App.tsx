@@ -8,7 +8,7 @@ import AudioManager from "./utils/AudioManager";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [showMessages, setShowMessages] = useState(false);
-  const [showChatSection, setShowChatSection] = useState(false);
+  const [showChatSection, setShowChatSection] = useState(true);
 
   const [musicPlaying, setMusicPlaying] = useState(AudioManager.getIsPlaying());
   const [navClicked, setNavClicked] = useState(false);
