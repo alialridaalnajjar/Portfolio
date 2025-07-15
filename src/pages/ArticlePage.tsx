@@ -1,6 +1,7 @@
 import { ArrowLeft, LinkIcon } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { Articles } from "../data/Articles";
+import ScrollToTop from "@/secondaryComponents/ScrollToTop";
 
 interface ArticleData {
   articleTest: string;
@@ -230,6 +231,7 @@ export default function ArticlePage() {
           </div>
         </div>
       </div>
+      <ScrollToTop />
     </div>
   );
 }
