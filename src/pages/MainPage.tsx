@@ -60,7 +60,7 @@ export default function MainPage({
   };
 
   return (
-    <div className="relative h-screen overflow-hidden caret-transparent">
+    <div className="relative h-screen overflow-hidden caret-transparent ">
       <RetroPopup />
 
       <video
@@ -69,7 +69,7 @@ export default function MainPage({
         loop
         muted
         playsInline
-        className="absolute w-full h-full object-cover z-0 lg:hidden"
+        className="absolute w-full h-full object-cover z-0 lg:hidden bg-black "
       >
         <source src={bgVid} type="video/mp4" />
       </video>
@@ -80,7 +80,7 @@ export default function MainPage({
         loop
         muted
         playsInline
-        className="absolute w-full h-full object-cover -z-10 hidden lg:block"
+        className="absolute w-full h-full object-cover -z-10 hidden lg:block bg-black"
       >
         <source src={lgVid} type="video/mp4" />
       </video>
