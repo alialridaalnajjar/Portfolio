@@ -1,22 +1,27 @@
 import { Menu, Volume2, VolumeX, X } from "lucide-react";
 import React from "react";
 import { IoVolumeMediumSharp, IoVolumeMuteSharp } from "react-icons/io5";
-import type { ClickSoundType } from "../types/ClickSoundType";
 import AudioManager from "../utils/AudioManager";
+
+export type ClickSoundType = {
+  handClickSound: () => void;
+  handleNavClick: () => void;
+  navClicked?: boolean; 
+};
 
 export default function Navbar({
   handClickSound,
   handleNavClick,
+  navClicked = false, // Default to false
 }: ClickSoundType) {
-  const [isNavOpen, setIsNavOpen] = React.useState(false);
-  const [musicPlaying, setMusicPlaying] = React.useState(
+
+  const [localMusicPlaying, setLocalMusicPlaying] = React.useState(
     AudioManager.getIsPlaying()
   );
 
-  // Subscribe to music state changes
   React.useEffect(() => {
     const unsubscribe = AudioManager.subscribe((isPlaying) => {
-      setMusicPlaying(isPlaying);
+      setLocalMusicPlaying(isPlaying);
     });
 
     return unsubscribe;
@@ -28,8 +33,7 @@ export default function Navbar({
   };
 
   const handleMenuClick = () => {
-    setIsNavOpen(!isNavOpen);
-    handleNavClick();
+    handleNavClick(); 
   };
 
   return (
@@ -93,7 +97,7 @@ export default function Navbar({
 
       <div className="flex items-center gap-5 lg:gap-50 lg:mx-5 lg:hidden">
         <div onClick={handleMusicToggle} className="cursor-pointer text-white">
-          {musicPlaying ? (
+          {localMusicPlaying ? (
             <IoVolumeMediumSharp size={25} className="lg:size-10" />
           ) : (
             <IoVolumeMuteSharp size={25} className="lg:size-10" />
@@ -102,11 +106,11 @@ export default function Navbar({
 
         <div
           className={`cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-110 ${
-            isNavOpen ? "text-blue-400 rotate-90" : "text-white"
+            navClicked ? "text-blue-400 rotate-90" : "text-white" // Use navClicked prop instead of isNavOpen
           }`}
           onClick={handleMenuClick}
         >
-          {isNavOpen ? (
+          {navClicked ? ( // Use navClicked prop instead of isNavOpen
             <X
               size={25}
               className="lg:size-10 transition-all duration-300 ease-in-out animate-pulse"
@@ -127,7 +131,7 @@ export default function Navbar({
         }
       `}</style>
 
-      {musicPlaying ? (
+      {localMusicPlaying ? (
         <Volume2
           className="fixed bottom-1/40 left-1/160 text-blue-400 z-50 hidden lg:block size-10 -rotate-3 hover:cursor-pointer hover:scale-105"
           onClick={handleMusicToggle}

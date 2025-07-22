@@ -49,12 +49,14 @@ export default function MainPage({
 
   const handleNavClick = () => {
     if (navClicked) {
+      // If menu is open, close it
       setIsClosing(true);
       setTimeout(() => {
         setNavClicked(false);
         setIsClosing(false);
       }, 300);
     } else {
+      // If menu is closed, open it
       setNavClicked(true);
     }
   };
@@ -87,8 +89,12 @@ export default function MainPage({
 
       <div className="absolute inset-0 bg-black/20 lg:bg-black/60 z-10"></div>
 
-      {/* FIXED:35rtw4s Remove extra props */}
-      <Navbar handClickSound={handClickSound} handleNavClick={handleNavClick} />
+      {/* FIXED: Pass navClicked prop to Navbar */}
+      <Navbar 
+        handClickSound={handClickSound} 
+        handleNavClick={handleNavClick}
+        navClicked={navClicked}
+      />
 
       {navClicked && (
         <div className="fixed top-0 left-0 w-full h-full bg-black/20 backdrop-blur-xs z-30">
