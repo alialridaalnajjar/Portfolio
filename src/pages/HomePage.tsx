@@ -8,6 +8,7 @@ import { Timeline } from "@/secondaryComponents/TimeLine";
 import VerticalLine from "@/secondaryComponents/VerticalLine";
 import ArticleSection from "./ArticleSection";
 import MainPage from "./MainPage";
+import { BrowserRedirectModal } from "@/secondaryComponents/BrowserRedirectModal";
 
 interface HomePageProps {
   musicPlaying: boolean;
@@ -41,7 +42,9 @@ export default function HomePage({
   handleMusicToggle,
 }: HomePageProps) {
   return (
+    
     <div className="h-auto min-h-auto">
+    <BrowserRedirectModal />
       <MainPage
         musicPlaying={musicPlaying}
         setMusicPlaying={setMusicPlaying}
