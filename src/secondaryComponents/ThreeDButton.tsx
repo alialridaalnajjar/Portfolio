@@ -2,7 +2,7 @@ import { type JSX, type ReactNode } from "react";
 
 type ThreeDButtonProps = {
   children: ReactNode;
-  handClickSound: () => void; // Fix the type
+  handClickSound?: () => void; // Fix the type
 };
 
 export default function ThreeDButton({

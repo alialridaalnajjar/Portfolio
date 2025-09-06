@@ -1,3 +1,5 @@
+import TSCert from "../assets/TSCert.png";
+
 export type TimelineEntry = {
   title: string;
   certificateTitle: string;
@@ -27,12 +29,12 @@ export const Certificates: TimelineEntry[] = [
     imageAlt: "https://www.hackerrank.com/certificates/iframe/d0d28b52c281",
   },
   {
-    title: "JAVA",
+    title: "TypeScript",
     certificateTitle: "Java B HackeRank",
     description:
       "Successfully obtained the Java (B) Developer Certificate from HackerRank, validating proficiency in core Java language features, class hierarchies, and common design patterns",
     imageUrl:
-      "https://alialridaalnajjar.github.io/My-Cetificates.github.io/images/Screenshot%202025-02-18%20000658.png",
+      TSCert,
     imageAlt: "https://www.hackerrank.com/certificates/iframe/d13ff605e066",
-  },
+  }
 ];

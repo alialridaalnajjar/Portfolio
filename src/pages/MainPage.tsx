@@ -3,7 +3,7 @@ import { RetroPopup } from "@/secondaryComponents/RetroPopUp";
 import ThreeDButton from "@/secondaryComponents/ThreeDButton";
 import React from "react";
 import { TbFileCv } from "react-icons/tb";
-import CV from "../assets/AliAlNajjarCV.pdf";
+import CV from "../assets/AliALNajjarCV (2).pdf";
 import awake from "../assets/AnimationSheet_Character (1).gif";
 import lgVid from "../assets/HorizontalBGCompressed.mp4";
 import sleep from "../assets/sleepyAvatar.gif";
