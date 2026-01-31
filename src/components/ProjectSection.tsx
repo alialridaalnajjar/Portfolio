@@ -3,6 +3,8 @@ import { ArrowDownFromLine } from "lucide-react";
 import React from "react";
 import Imgone from "../assets/images/ArWarehouse.png";
 import ImgTwo from "../assets/images/BakaRate.png";
+import ImgThree from "../assets/images/DevArt.png";
+import ImgFour from "../assets/images/Screenshot 2026-01-31 163133.png";
 import ProjectCard from "./ProjectCard";
 export default function ProjectSection() {
   const [expanded, setExpanded] = React.useState(false);
@@ -16,6 +18,21 @@ export default function ProjectSection() {
     inverse: boolean;
   }[] = [
     {
+      name: "DevArt",
+      url: "https://devart-learn.vercel.app/",
+      repo: "https://github.com/alialridaalnajjar/DevArt_Front",
+      img: ImgThree,
+      desc: "A modern learning platform built with React, Express, TypeScript, PostgreSql, and Firebase. This platform provides an interactive course browsing experience, user authentication, and personalized profile management.",
+      inverse: false,
+    },
+    {
+      name: "No Wallet Gaming",
+      url: "https://no-wallet-gaming.vercel.app/",
+      repo: "https://github.com/alialridaalnajjar/NoWalletGamingFrontEnd",
+      img: ImgFour,
+      desc: "A fast, wallet-free way to explore web games. Frontend in React + TypeScript + Vite, powered by my first Express backend.",
+      inverse: true,
+    },{
       name: "Ar Warehouse",
       url: "https://ar-warehouse.vercel.app/",
       repo: "https://github.com/alialridaalnajjar/AR_Warehouse",

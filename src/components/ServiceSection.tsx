@@ -8,10 +8,11 @@ import postgreSql from "../assets/languagesImg/postgresql.svg";
 import react from "../assets/languagesImg/react.svg";
 import tailwindCss from "../assets/languagesImg/tailwind-css.svg";
 import typescript from "../assets/languagesImg/typescript.svg";
-
+import ex from "../assets/languagesImg/Express.svg";
 export default function ServiceSection() {
   const languages = [
     { icon: react, name: "React" },
+    { icon: ex, name: "Express" },
     { icon: typescript, name: "TypeScript" },
     { icon: java, name: "Java" },
     { icon: tailwindCss, name: "TailwindCSS" },
@@ -23,41 +24,47 @@ export default function ServiceSection() {
   ];
 
   return (
-    <div className="bg-black h-auto min-h-auto relative caret-transparent" id="About">
+    <div
+      className="bg-black h-auto min-h-auto relative caret-transparent"
+      id="About"
+    >
       {/* About section */}
       <div className="flex flex-row items-center justify-center pt-10.75 lg:pt-30 lg:gap-4">
         <div className="relative">
-          <h1 className="text-4xl font-bold text-white relative z-10 ">About</h1>
+          <h1 className="text-4xl font-bold text-white relative z-10 ">
+            About
+          </h1>
           <div className="absolute top-7 left-5 w-28 h-4.5 bg-blue-700 z-0"></div>
         </div>
       </div>
-      <div  className=" lg:mt-15  lg:visible lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-15 mt-2">
-      {/* Profile and description */}
-      <div className="flex flex-col items-center justify-center gap-4 text-xs font-mono mt-7.5">
-        <img src={img} alt="Profile Image" className="size-60 lg:size-80" />
-        <p className="text-white text-left max-w-80 leading-4.75 lg:text-xl lg:max-w-xl lg:leading-8 lg:font-sans lg:font-light ">
-          Fully committed to the philosophy of life-long learning, I'm a full
-          stack developer with a deep passion for TypeScript, React and all web
-          tech. The unique combination of creativity, logic, technology and
-          never running out of new things to discover, drives my excitement and
-          passion for web development and push me always to strive for
-          perfection knowing I wont achieve it. When I'm not coding I like to
-          spend my time playing video games, watching anime and then thinking
-          about that bug for 12 hrs straight.
-        </p>
-      </div>
+      <div className=" lg:mt-15  lg:visible lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-15 mt-2">
+        {/* Profile and description */}
+        <div className="flex flex-col items-center justify-center gap-4 text-xs font-mono mt-7.5">
+          <img src={img} alt="Profile Image" className="size-60 lg:size-80" />
+          <p className="text-white text-left max-w-80 leading-4.75 lg:text-xl lg:max-w-xl lg:leading-8 lg:font-sans lg:font-light ">
+            Fully committed to the philosophy of life-long learning, I'm a full
+            stack developer with a deep passion for TypeScript, React and all
+            web tech. The unique combination of creativity, logic, technology
+            and never running out of new things to discover, drives my
+            excitement and passion for web development and push me always to
+            strive for perfection knowing I wont achieve it. When I'm not coding
+            I like to spend my time playing video games, watching anime and then
+            thinking about that bug for 12 hrs straight.
+          </p>
+        </div>
 
-      {/* Languages grid with gradient borders */}
-      <div className="flex flex-wrap justify-center gap-4 mt-8 px-4 lg:max-w-2xl lg:gap-10">
-        {languages.map((lang, index) => (
-          <div key={index} className="tech-card lg:size-35 ">
-            <img src={lang.icon} alt={lang.name} className="size-10 mb-2" />
-            <h1 className="text-xs text-white text-center font-semibold uppercase">
-              {lang.name}
-            </h1>
-          </div>
-        ))}
-      </div></div>
+        {/* Languages grid with gradient borders */}
+        <div className="flex flex-wrap justify-center gap-4 mt-8 px-4 lg:max-w-2xl lg:gap-10">
+          {languages.map((lang, index) => (
+            <div key={index} className="tech-card lg:size-35 ">
+              <img src={lang.icon} alt={lang.name} className="size-10 mb-2" />
+              <h1 className="text-xs text-white text-center font-semibold uppercase">
+                {lang.name}
+              </h1>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <style>{`
         .tech-card {
