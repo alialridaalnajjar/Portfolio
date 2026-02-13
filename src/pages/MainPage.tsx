@@ -4,11 +4,11 @@ import ThreeDButton from "@/secondaryComponents/ThreeDButton";
 import React from "react";
 import { TbFileCv } from "react-icons/tb";
 import CV from "../assets/AliALNajjarCV (2).pdf";
-import awake from "../assets/AnimationSheet_Character (1).gif";
-import lgVid from "../assets/HorizontalBGCompressed.mp4";
-import sleep from "../assets/sleepyAvatar.gif";
-import bgVid from "../assets/VerticalBgCompressed.mp4";
-import AudioManager from "../utils/AudioManager";
+import lgVid from "../assets/BackgroundVideos/DesktopBackground.mp4";
+import bgVid from "../assets/BackgroundVideos/MobileBackground.mp4";
+import awake from "../assets/Sprite/AwakeSprite.gif";
+import sleep from "../assets/Sprite/SleepingSprite.gif";
+import AudioManager from "../Utils/AudioManager";
 
 // Add the missing props interface
 interface MainPageProps {

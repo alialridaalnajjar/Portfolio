@@ -1,7 +1,7 @@
 import { Menu, Volume2, VolumeX, X } from "lucide-react";
 import React from "react";
 import { IoVolumeMediumSharp, IoVolumeMuteSharp } from "react-icons/io5";
-import AudioManager from "../utils/AudioManager";
+import AudioManager from "../Utils/AudioManager";
 
 export type ClickSoundType = {
   handClickSound: () => void;

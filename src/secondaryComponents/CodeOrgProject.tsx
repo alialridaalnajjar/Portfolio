@@ -1,4 +1,4 @@
-import img from "../assets/images/codeOrgImg111.png";
+import img from "../assets/ProjectImages/codeOrgImg111.png";
 export default function CodeOrgProject() {
   return (
     <div

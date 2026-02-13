@@ -1,10 +1,10 @@
 import CodeOrgProject from "@/secondaryComponents/CodeOrgProject";
 import { ArrowDownFromLine } from "lucide-react";
 import React from "react";
-import Imgone from "../assets/images/ArWarehouse.png";
-import ImgTwo from "../assets/images/BakaRate.png";
-import ImgThree from "../assets/images/DevArt.png";
-import ImgFour from "../assets/images/Screenshot 2026-01-31 163133.png";
+import Imgone from "../assets/ProjectImages/ArWarehouse.png";
+import ImgTwo from "../assets/ProjectImages/BakaRate.png";
+import ImgThree from "../assets/ProjectImages/DevArt.png";
+import ImgFour from "../assets/ProjectImages/Screenshot 2026-01-31 163133.png";
 import ProjectCard from "./ProjectCard";
 export default function ProjectSection() {
   const [expanded, setExpanded] = React.useState(false);
@@ -32,7 +32,8 @@ export default function ProjectSection() {
       img: ImgFour,
       desc: "A fast, wallet-free way to explore web games. Frontend in React + TypeScript + Vite, powered by my first Express backend.",
       inverse: true,
-    },{
+    },
+    {
       name: "Ar Warehouse",
       url: "https://ar-warehouse.vercel.app/",
       repo: "https://github.com/alialridaalnajjar/AR_Warehouse",

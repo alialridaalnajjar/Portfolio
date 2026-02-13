@@ -1,5 +1,6 @@
-import TSCert from "../assets/TSCert.png";
-
+import TSCert from "../assets/CertificatesImages/TSCert.png";
+import AubAi from "../assets/CertificatesImages/AubAi.png";
+import SC from "../assets/CertificatesImages/FsScrimba.png";
 export type TimelineEntry = {
   title: string;
   certificateTitle: string;
@@ -9,6 +10,23 @@ export type TimelineEntry = {
 };
 
 export const Certificates: TimelineEntry[] = [
+  {
+    title: "Full Stack",
+    certificateTitle: "Full Stack Developer Certification",
+    description:
+      "Completed the Full Stack Developer program on Scrimba, gaining comprehensive skills in both front-end and back-end web development.",
+    imageUrl: SC,
+    imageAlt:
+      "https://scrimba.com/certificate/9b1e5f8c-7a0c-4d9b-8c3e-1a2b3c4d5e6f",
+  },
+  {
+    title: "Soft Skills",
+    certificateTitle: "AI Fundamentals",
+    description:
+      "Completed the AI Fundamentals course from the American University of Beirut (AUB), gaining foundational knowledge in artificial intelligence concepts and applications.",
+    imageUrl: AubAi,
+    imageAlt: "https://www.hackerrank.com/certificates/iframe/d13ff605e066",
+  },
   {
     title: "FRONT-END",
     certificateTitle: "Full Stack Web Development Certification",
@@ -21,7 +39,7 @@ export const Certificates: TimelineEntry[] = [
   },
   {
     title: "REACT",
-    certificateTitle: "React B HakcerRank",
+    certificateTitle: "React B HackerRank",
     description:
       "Completed the React (B) Developer certification on HackerRank, demonstrating foundational skills in React.js.",
     imageUrl:
@@ -30,11 +48,10 @@ export const Certificates: TimelineEntry[] = [
   },
   {
     title: "TypeScript",
-    certificateTitle: "Java B HackeRank",
+    certificateTitle: "TypeScript Scrimba",
     description:
-      "Successfully obtained the Java (B) Developer Certificate from HackerRank, validating proficiency in core Java language features, class hierarchies, and common design patterns",
-    imageUrl:
-      TSCert,
-    imageAlt: "https://www.hackerrank.com/certificates/iframe/d13ff605e066",
-  }
+      "Completed the TypeScript course on Scrimba, gaining proficiency in static typing and advanced JavaScript features.",
+    imageUrl: TSCert,
+    imageAlt: "https://scrimba.com/certificate/d13ff605e066",
+  },
 ];

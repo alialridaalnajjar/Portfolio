@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import ArticlePage from "./pages/ArticlePage";
 import HomePage from "./pages/HomePage";
-import AudioManager from "./utils/AudioManager";
+import AudioManager from "./Utils/AudioManager";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);

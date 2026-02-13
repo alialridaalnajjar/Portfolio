@@ -1,4 +1,5 @@
 import css from "../assets/languagesImg/css3.svg";
+import ex from "../assets/languagesImg/Express.svg";
 import git from "../assets/languagesImg/git.svg";
 import html from "../assets/languagesImg/html.svg";
 import img from "../assets/languagesImg/img1Guest.png";
@@ -8,7 +9,6 @@ import postgreSql from "../assets/languagesImg/postgresql.svg";
 import react from "../assets/languagesImg/react.svg";
 import tailwindCss from "../assets/languagesImg/tailwind-css.svg";
 import typescript from "../assets/languagesImg/typescript.svg";
-import ex from "../assets/languagesImg/Express.svg";
 export default function ServiceSection() {
   const languages = [
     { icon: react, name: "React" },
