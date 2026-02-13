@@ -4,6 +4,7 @@ import "./App.css";
 import ArticlePage from "./pages/ArticlePage";
 import HomePage from "./pages/HomePage";
 import AudioManager from "./Utils/AudioManager";
+import FullCertificatesPage from "./pages/FullCertificatesPage";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,6 +43,7 @@ function App() {
           path="/"
         />
         <Route element={<ArticlePage />} path="/Article/:slug" />
+        <Route element={<FullCertificatesPage />} path="/Certificates" />
       </Routes>
     </Router>
   );

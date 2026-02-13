@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: 'Kick';
-  src: url('./fonts/kick-font.otf') format('opentype');
+  src: url('./Utils/kick-font.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
