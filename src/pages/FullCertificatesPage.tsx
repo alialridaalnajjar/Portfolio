@@ -34,15 +34,15 @@ export default function FullCertificatesPage({
                 <h1 className="text-black text-2xl font-bold mt-1 font-serif">
                   {certificate.title}
                 </h1>
-                <p className="text-gray-500 text-sm mt-3 leading-relaxed font-serif">
+                <p className="text-gray-500 text-sm mt-3 leading-relaxed font-serif min-h-20">
                   {certificate.description}
                 </p>
               </div>
 
               <div
-                className={`text-xl ${index - Certificates.length % 2 == 0 ? "bg-cyan-500" : index % 3 ? "bg-purple-500" : index % 7 ? "bg-amber-500" : "bg-gray-500 "} text-white text-center py-3  font-bold`}
+                className={`min-h-9  text-xl ${index - (Certificates.length % 2) == 0 ? "bg-cyan-500" : index % 3 ? "bg-purple-500" : index % 7 ? "bg-amber-500" : "bg-gray-500 "} text-white flex flex-row justify-center items-center font-bold`}
               >
-                #{certificate.certificateTitle}
+                #{certificate.title}
               </div>
             </div>
           ))}

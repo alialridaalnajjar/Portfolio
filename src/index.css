@@ -12,3 +12,15 @@
 .font-kick {
   font-family: 'Kick', 'Press Start 2P', monospace !important;
 }
+
+.parent-cert {
+  display: block;
+}
+
+.child-cert {
+  display: none;
+}
+
+.parent-cert:hover .child-cert {
+  display: block;
+}

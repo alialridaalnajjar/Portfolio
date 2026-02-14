@@ -24,26 +24,26 @@ function App() {
       <Routes>
         <Route
           element={
-            <HomePage
-              musicPlaying={musicPlaying}
-              setMusicPlaying={setMusicPlaying}
-              navClicked={navClicked}
-              setNavClicked={setNavClicked}
-              isClosing={isClosing}
-              setIsClosing={setIsClosing}
-              isOpen={isOpen}
-              setIsOpen={setIsOpen}
-              showMessages={showMessages}
-              setShowMessages={setShowMessages}
-              showChatSection={showChatSection}
-              setShowChatSection={setShowChatSection}
-              handleMusicToggle={handleMusicToggle}
-            />
+        <HomePage
+          musicPlaying={musicPlaying}
+          setMusicPlaying={setMusicPlaying}
+          navClicked={navClicked}
+          setNavClicked={setNavClicked}
+          isClosing={isClosing}
+          setIsClosing={setIsClosing}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          showMessages={showMessages}
+          setShowMessages={setShowMessages}
+          showChatSection={showChatSection}
+          setShowChatSection={setShowChatSection}
+          handleMusicToggle={handleMusicToggle}
+        />
           }
           path="/"
         />
         <Route element={<ArticlePage />} path="/Article/:slug" />
-        <Route element={<FullCertificatesPage />} path="/Certificates" />
+        <Route element={<FullCertificatesPage handleClickSound={handleMusicToggle} handleNavClick={() => setNavClicked(true)} />} path="/Certificates" />
       </Routes>
     </Router>
   );
