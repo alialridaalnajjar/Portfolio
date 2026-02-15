@@ -38,7 +38,7 @@ export default function Navbar({
   };
 
   return (
-    <div className="caret-transparent bg-transparent fixed top-0 left-0 w-full z-50 flex items-center justify-between p-10 backdrop-blur-md lg:backdrop-blur-none">
+    <div className="caret-transparent bg-transparent fixed top-0 left-0 w-full z-50 flex items-center justify-between lg:p-10 p-4 backdrop-blur-md lg:backdrop-blur-none">
       <Link to="/">
         <div className="text-white font-kick lg:hidden font-extralight">
           A. Najjar

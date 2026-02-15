@@ -15,7 +15,6 @@ export default function ProjectSection() {
     repo: string;
     img: string;
     desc: string;
-    inverse: boolean;
   }[] = [
     {
       name: "DevArt",
@@ -23,7 +22,6 @@ export default function ProjectSection() {
       repo: "https://github.com/alialridaalnajjar/DevArt_Front",
       img: ImgThree,
       desc: "A modern learning platform built with React, Express, TypeScript, PostgreSql, and Firebase. This platform provides an interactive course browsing experience, user authentication, and personalized profile management.",
-      inverse: false,
     },
     {
       name: "No Wallet Gaming",
@@ -31,7 +29,6 @@ export default function ProjectSection() {
       repo: "https://github.com/alialridaalnajjar/NoWalletGamingFrontEnd",
       img: ImgFour,
       desc: "A fast, wallet-free way to explore web games. Frontend in React + TypeScript + Vite, powered by my first Express backend.",
-      inverse: true,
     },
     {
       name: "Ar Warehouse",
@@ -39,7 +36,6 @@ export default function ProjectSection() {
       repo: "https://github.com/alialridaalnajjar/AR_Warehouse",
       img: Imgone,
       desc: "A modern,responsive e-commerce web app for esports gadgets, built with React, TypeScript, and Tailwind CSS.",
-      inverse: false,
     },
     {
       name: "Baka Rate",
@@ -47,7 +43,6 @@ export default function ProjectSection() {
       repo: "https://github.com/alialridaalnajjar/BakaRate",
       img: ImgTwo,
       desc: " BAKARATE is a modern, interactive anime listing and rating web app built with React, TypeScript, and Tailwind CSS.",
-      inverse: true,
     },
   ];
 
@@ -69,12 +64,12 @@ export default function ProjectSection() {
         {projects.map((p, index) => (
           <ProjectCard
             key={index}
+            index={index}
             name={p.name}
             url={p.url}
             repo={p.repo}
             img={p.img}
             desc={p.desc}
-            inverse={p.inverse}
           />
         ))}
       </div>{" "}

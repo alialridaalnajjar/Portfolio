@@ -10,6 +10,7 @@ import { Timeline } from "@/secondaryComponents/TimeLine";
 import VerticalLine from "@/secondaryComponents/VerticalLine";
 import ArticleSection from "./ArticleSection";
 import MainPage from "./MainPage";
+import { Link } from "react-router-dom";
 
 interface HomePageProps {
   musicPlaying: boolean;
@@ -58,7 +59,10 @@ export default function HomePage({
       <Timeline data={Certificates} />
       <div className="flex flex-row items-center justify-center bg-black text-white py-2">
         {" "}
+        <Link to="/certificates">
         <ThreeDButton>Check The REST !</ThreeDButton>
+        
+        </Link>
       </div>
       <div className=" lg:flex lg:flex-row lg:justify-center  lg:gap-10 bg-black lg:px-40 lg:pt-20 h-auto min-h-fit">
         <ArticleSection
