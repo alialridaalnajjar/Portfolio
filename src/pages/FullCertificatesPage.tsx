@@ -1,18 +1,18 @@
+import { useState } from "react";
 import { Footer } from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Certificates } from "../data/certificates";
-export default function FullCertificatesPage({
-  handleClickSound,
-  handleNavClick,
-}: {
-  handleClickSound: () => void;
-  handleNavClick: () => void;
-}) {
+import { playClickSound } from "../Utils/sounds";
+
+export default function FullCertificatesPage() {
+  const [navClicked, setNavClicked] = useState(false);
+
   return (
     <>
       <Navbar
-        handClickSound={handleClickSound}
-        handleNavClick={handleNavClick}
+        handClickSound={playClickSound}
+        handleNavClick={() => setNavClicked((open) => !open)}
+        navClicked={navClicked}
       />
 
       <div className="bg-black min-h-screen pt-36.5 pl-20 pb-10">

@@ -1,13 +1,13 @@
 import { Menu, Volume2, VolumeX, X } from "lucide-react";
-import React from "react";
 import { IoVolumeMediumSharp, IoVolumeMuteSharp } from "react-icons/io5";
-import AudioManager from "../Utils/AudioManager";
 import { Link } from "react-router-dom";
+import AudioManager from "../Utils/AudioManager";
+import { useAudioPlaying } from "../Utils/useAudioPlaying";
 
 export type ClickSoundType = {
   handClickSound: () => void;
   handleNavClick: () => void;
-  navClicked?: boolean; 
+  navClicked?: boolean;
 };
 
 export default function Navbar({
@@ -15,18 +15,7 @@ export default function Navbar({
   handleNavClick,
   navClicked = false, // Default to false
 }: ClickSoundType) {
-
-  const [localMusicPlaying, setLocalMusicPlaying] = React.useState(
-    AudioManager.getIsPlaying()
-  );
-
-  React.useEffect(() => {
-    const unsubscribe = AudioManager.subscribe((isPlaying) => {
-      setLocalMusicPlaying(isPlaying);
-    });
-
-    return unsubscribe;
-  }, []);
+  const localMusicPlaying = useAudioPlaying();
 
   const handleMusicToggle = () => {
     handClickSound();
@@ -34,7 +23,7 @@ export default function Navbar({
   };
 
   const handleMenuClick = () => {
-    handleNavClick(); 
+    handleNavClick();
   };
 
   return (

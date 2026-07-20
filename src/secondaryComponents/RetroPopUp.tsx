@@ -1,9 +1,14 @@
 import React from "react";
 
+const SEEN_KEY = "retroPopupSeen";
+
 export function RetroPopup() {
-  const [showPopup, setShowPopup] = React.useState(true);
+  const [showPopup, setShowPopup] = React.useState(
+    () => !sessionStorage.getItem(SEEN_KEY)
+  );
 
   const handlePopupClose = () => {
+    sessionStorage.setItem(SEEN_KEY, "true");
     setShowPopup(false);
   };
 

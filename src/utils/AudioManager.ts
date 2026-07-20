@@ -1,9 +1,15 @@
-// singelton :(
+// Singleton that owns the single background-music element and broadcasts its
+// play/pause state to any subscribed React component.
 class AudioManager {
   private static instance: AudioManager;
   private audio: HTMLAudioElement | null = null;
-  private isPlaying: boolean = false;
-  private listeners: Set<(isPlaying: boolean) => void> = new Set();
+  private isPlaying = false;
+  private listeners = new Set<(isPlaying: boolean) => void>();
+
+  // Browsers block audio autoplay until the user interacts with the page, so we
+  // fall back to starting playback on the first gesture anywhere.
+  private readonly gestureEvents = ["pointerdown", "keydown", "touchstart"];
+  private gestureHandler: (() => void) | null = null;
 
   private constructor() {}
 
@@ -14,46 +20,39 @@ class AudioManager {
     return AudioManager.instance;
   }
 
+  /** Create the audio element once and try to start playback. Safe to call repeatedly. */
   initialize() {
-    if (!this.audio) {
-      this.audio = new Audio("/music.mp3");
-      this.audio.loop = true;
-      this.audio.volume = 0.1;
+    if (this.audio) return;
 
-      this.audio
-        .play()
-        .then(() => {
-          this.isPlaying = true;
-          this.notifyListeners();
-        })
-        .catch(() => {
-          const handleFirstClick = () => {
-            this.play();
-            document.removeEventListener("click", handleFirstClick);
-          };
-          document.addEventListener("click", handleFirstClick);
-        });
-    }
+    const audio = new Audio("/music.mp3");
+    audio.loop = true;
+    audio.volume = 0.1;
+    // Don't fight the background video for bandwidth on first paint — the file is
+    // only fetched once we actually start playing.
+    audio.preload = "none";
+    this.audio = audio;
+
+    audio.play().then(
+      () => this.setPlaying(true),
+      () => this.bindFirstGesture(),
+    );
   }
 
   play() {
-    if (this.audio && !this.isPlaying) {
-      this.audio
-        .play()
-        .then(() => {
-          this.isPlaying = true;
-          this.notifyListeners();
-        })
-        .catch(console.error);
-    }
+    if (!this.audio || this.isPlaying) return;
+    // Flip optimistically so the sprite / volume icon react instantly instead of
+    // waiting for the mp3 to buffer.
+    this.setPlaying(true);
+    this.audio.play().catch(() => {
+      this.setPlaying(false);
+      this.bindFirstGesture();
+    });
   }
 
   pause() {
-    if (this.audio && this.isPlaying) {
-      this.audio.pause();
-      this.isPlaying = false;
-      this.notifyListeners();
-    }
+    if (!this.audio || !this.isPlaying) return;
+    this.audio.pause();
+    this.setPlaying(false);
   }
 
   toggle() {
@@ -68,7 +67,6 @@ class AudioManager {
     return this.isPlaying;
   }
 
-  // FIXED: Return a function, don't call it
   subscribe(listener: (isPlaying: boolean) => void): () => void {
     this.listeners.add(listener);
     return () => {
@@ -76,7 +74,29 @@ class AudioManager {
     };
   }
 
-  private notifyListeners() {
+  private bindFirstGesture() {
+    if (this.gestureHandler) return;
+    const handler = () => {
+      this.unbindFirstGesture();
+      this.play();
+    };
+    this.gestureHandler = handler;
+    this.gestureEvents.forEach((event) =>
+      document.addEventListener(event, handler, { passive: true }),
+    );
+  }
+
+  private unbindFirstGesture() {
+    if (!this.gestureHandler) return;
+    this.gestureEvents.forEach((event) =>
+      document.removeEventListener(event, this.gestureHandler!),
+    );
+    this.gestureHandler = null;
+  }
+
+  private setPlaying(value: boolean) {
+    if (this.isPlaying === value) return;
+    this.isPlaying = value;
     this.listeners.forEach((listener) => listener(this.isPlaying));
   }
 }

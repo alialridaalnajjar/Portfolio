@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { RetroPopup } from "@/secondaryComponents/RetroPopUp";
 import ThreeDButton from "@/secondaryComponents/ThreeDButton";
-import React from "react";
+import { useEffect, useState } from "react";
 import { TbFileCv } from "react-icons/tb";
 import CV from "../assets/AliAlNajjar_CVFS.pdf";
 import lgVid from "../assets/BackgroundVideos/DesktopBackground.mp4";
@@ -9,54 +9,32 @@ import bgVid from "../assets/BackgroundVideos/MobileBackground.mp4";
 import awake from "../assets/Sprite/AwakeSprite.gif";
 import sleep from "../assets/Sprite/SleepingSprite.gif";
 import AudioManager from "../Utils/AudioManager";
+import { playClickSound } from "../Utils/sounds";
+import { useAudioPlaying } from "../Utils/useAudioPlaying";
+import { useMediaQuery } from "../Utils/useMediaQuery";
 
-// Add the missing props interface
-interface MainPageProps {
-  musicPlaying: boolean;
-  setMusicPlaying: (playing: boolean) => void;
-  navClicked: boolean;
-  setNavClicked: (clicked: boolean) => void;
-  isClosing: boolean;
-  setIsClosing: (closing: boolean) => void;
-}
+export default function MainPage() {
+  const musicPlaying = useAudioPlaying();
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
-export default function MainPage({
-  musicPlaying,
-  setMusicPlaying,
-  navClicked,
-  setNavClicked,
-  isClosing,
-  setIsClosing,
-}: MainPageProps) {
-  // Initialize audio and subscribe to changes
-  React.useEffect(() => {
+  const [navClicked, setNavClicked] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  // Kick off the background music (starts on the first user gesture if autoplay
+  // is blocked by the browser).
+  useEffect(() => {
     AudioManager.initialize();
-
-    const unsubscribe = AudioManager.subscribe((isPlaying) => {
-      setMusicPlaying(isPlaying);
-    });
-
-    return unsubscribe;
-  }, [setMusicPlaying]);
-
-  const handClickSound = () => {
-    const clickedAudio = new Audio("/portfolioClick.mp3");
-    clickedAudio
-      .play()
-      .then(() => console.log("clicked ! sound played"))
-      .catch((error) => console.error("Error playing click sound:", error));
-  };
+  }, []);
 
   const handleNavClick = () => {
     if (navClicked) {
-      // If menu is open, close it
+      // If menu is open, play the close animation before unmounting it.
       setIsClosing(true);
       setTimeout(() => {
         setNavClicked(false);
         setIsClosing(false);
       }, 300);
     } else {
-      // If menu is closed, open it
       setNavClicked(true);
     }
   };
@@ -65,33 +43,25 @@ export default function MainPage({
     <div className="relative h-screen overflow-hidden caret-transparent ">
       <RetroPopup />
 
+      {/* Only the video for the current viewport is mounted, so we never download
+          both the mobile and desktop files. `preload="metadata"` lets it stream
+          in instead of blocking on a full buffer. */}
       <video
-        preload="auto"
+        key={isDesktop ? "desktop" : "mobile"}
+        preload="metadata"
         autoPlay
         loop
         muted
         playsInline
-        className="absolute w-full h-full object-cover z-0 lg:hidden bg-black "
+        className="absolute w-full h-full object-cover -z-10 bg-black"
       >
-        <source src={bgVid} type="video/mp4" />
-      </video>
-
-      <video
-        preload="auto"
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute w-full h-full object-cover -z-10 hidden lg:block bg-black"
-      >
-        <source src={lgVid} type="video/mp4" />
+        <source src={isDesktop ? lgVid : bgVid} type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-black/20 lg:bg-black/60 z-10"></div>
 
-      {/* FIXED: Pass navClicked prop to Navbar */}
-      <Navbar 
-        handClickSound={handClickSound} 
+      <Navbar
+        handClickSound={playClickSound}
         handleNavClick={handleNavClick}
         navClicked={navClicked}
       />
@@ -203,17 +173,17 @@ export default function MainPage({
 
         <div className="flex flex-col items-center gap-6 lg:gap-8">
           <a href="#Projects">
-            <ThreeDButton handClickSound={handClickSound}>
+            <ThreeDButton handClickSound={playClickSound}>
               <span className="flex items-center gap-2">🚀 My Adventure</span>
             </ThreeDButton>
           </a>
           <a href="#About">
-            <ThreeDButton handClickSound={handClickSound}>
+            <ThreeDButton handClickSound={playClickSound}>
               <span className="flex items-center gap-3">⚡ The Tech Stack</span>
             </ThreeDButton>
           </a>
           <a href={CV} download={CV}>
-            <ThreeDButton handClickSound={handClickSound}>
+            <ThreeDButton handClickSound={playClickSound}>
               <span className="flex items-center gap-2">
                 Download Resume! <TbFileCv className="text-lg" />
               </span>

@@ -1,26 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Articles } from "../data/Articles";
 
-interface ArticleSectionProps {
-  onShowArticle?: (slug: string) => void;
-  handleMusicToggle: () => void;
-  musicPlaying: boolean;
-  isOpen: boolean;
-  setIsOpen: (open: boolean) => void;
-  showMessages: boolean;
-  setShowMessages: (show: boolean) => void;
-  showChatSection: boolean;
-  setShowChatSection: (show: boolean) => void;
-}
-
-export default function ArticleSection({
-  isOpen,
-  setIsOpen,
-  showMessages,
-  setShowMessages,
-  showChatSection,
-  setShowChatSection,
-}: ArticleSectionProps) {
+export default function ArticleSection() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [showMessages, setShowMessages] = useState(false);
+  const [showChatSection, setShowChatSection] = useState(true);
   const handleMainToggle = () => {
     setShowChatSection(!showChatSection);
     if (!showChatSection) {

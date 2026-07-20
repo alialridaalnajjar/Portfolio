@@ -5,6 +5,7 @@ import Imgone from "../assets/ProjectImages/ArWarehouse.png";
 import ImgTwo from "../assets/ProjectImages/BakaRate.png";
 import ImgThree from "../assets/ProjectImages/DevArt.png";
 import ImgFour from "../assets/ProjectImages/Screenshot 2026-01-31 163133.png";
+import ImgFive from "../assets/ProjectImages/Sakekrha.png";
 import ProjectCard from "./ProjectCard";
 export default function ProjectSection() {
   const [expanded, setExpanded] = React.useState(false);
@@ -16,12 +17,19 @@ export default function ProjectSection() {
     img: string;
     desc: string;
   }[] = [
+    
     {
       name: "DevArt",
       url: "https://devart-learn.vercel.app/",
       repo: "https://github.com/alialridaalnajjar/DevArt_Front",
       img: ImgThree,
-      desc: "A modern learning platform built with React, Express, TypeScript, PostgreSql, and Firebase. This platform provides an interactive course browsing experience, user authentication, and personalized profile management.",
+      desc: "Developed & Architected using MVC and design patterns, a modern web app for learning programming languages. Implemented user authO and authZ, also integrated firebase cloud for storage.",
+    }, {
+      name: "Sakekrha",
+      url: "https://sakkerha.up.railway.app/",
+      repo: "https://github.com/alialridaalnajjar/sakkerha_uni",
+      img: ImgFive,
+      desc: "Architected a municipal service web app following MVC+ and design patterns, utilizing React, Express, TypeScript, and PostgreSQL. Implemented user authentication, CRUD operations, and AI 3rd party integration.",
     },
     {
       name: "No Wallet Gaming",
