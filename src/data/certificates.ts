@@ -1,5 +1,5 @@
 import TSCert from "../assets/CertificatesImages/TSCert.png";
-import AubAi from "../assets/CertificatesImages/AubAi.png";
+import AubAi from "../assets/CertificatesImages/AubAI.png";
 import SC from "../assets/CertificatesImages/FsScrimba.png";
 export type TimelineEntry = {
   title: string;
