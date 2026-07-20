@@ -1,12 +1,13 @@
 import { Menu, Volume2, VolumeX, X } from "lucide-react";
-import React from "react";
 import { IoVolumeMediumSharp, IoVolumeMuteSharp } from "react-icons/io5";
-import AudioManager from "../utils/AudioManager";
+import { Link } from "react-router-dom";
+import AudioManager from "../Utils/AudioManager";
+import { useAudioPlaying } from "../Utils/useAudioPlaying";
 
 export type ClickSoundType = {
   handClickSound: () => void;
   handleNavClick: () => void;
-  navClicked?: boolean; 
+  navClicked?: boolean;
 };
 
 export default function Navbar({
@@ -14,18 +15,7 @@ export default function Navbar({
   handleNavClick,
   navClicked = false, // Default to false
 }: ClickSoundType) {
-
-  const [localMusicPlaying, setLocalMusicPlaying] = React.useState(
-    AudioManager.getIsPlaying()
-  );
-
-  React.useEffect(() => {
-    const unsubscribe = AudioManager.subscribe((isPlaying) => {
-      setLocalMusicPlaying(isPlaying);
-    });
-
-    return unsubscribe;
-  }, []);
+  const localMusicPlaying = useAudioPlaying();
 
   const handleMusicToggle = () => {
     handClickSound();
@@ -33,26 +23,26 @@ export default function Navbar({
   };
 
   const handleMenuClick = () => {
-    handleNavClick(); 
+    handleNavClick();
   };
 
   return (
-    <div className="caret-transparent bg-transparent fixed top-0 left-0 w-full z-50 flex items-center justify-between p-4 backdrop-blur-md lg:backdrop-blur-none">
-      <a href="#">
+    <div className="caret-transparent bg-transparent fixed top-0 left-0 w-full z-50 flex items-center justify-between lg:p-10 p-4 backdrop-blur-md lg:backdrop-blur-none">
+      <Link to="/">
         <div className="text-white font-kick lg:hidden font-extralight">
           A. Najjar
         </div>
-      </a>
+      </Link>
 
-      <div className="hidden lg:flex items-center justify-between w-full max-w-4xl mx-auto text-white font-bold mt-5 px-4 lg:bg-black/50 lg:rounded-lg lg:p-4">
-        <a href="#">
+      <div className="hidden lg:flex items-center justify-between w-full max-w-4xl mx-auto text-white font-bold    px-4 lg:bg-black/50 lg:rounded-lg ">
+        <Link to="/">
           <div className="relative group cursor-pointer">
             <span className="transition-colors duration-300 group-hover:text-blue-300">
               Main
             </span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
-        </a>
+        </Link>
         <a href="#About">
           <div className="relative group cursor-pointer">
             <span className="transition-colors duration-300 group-hover:text-blue-300">
@@ -69,14 +59,25 @@ export default function Navbar({
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
           </div>
         </a>
-        <a href="#Certificates">
-          <div className="relative group cursor-pointer">
-            <span className="transition-colors duration-300 group-hover:text-blue-300">
+
+        <div className="parent-cert ">
+<div className="h-13 flex flex-row items-center justify-center ">
+           <a href="#Certificates" className="relative group cursor-pointer">
+            <span className="transition-colors duration-300 group-hover:text-blue-300 min-h-50">
               Certificates
             </span>
             <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></div>
-          </div>
-        </a>
+          </a>
+</div>
+          <Link to="/certificates" className=" absolute bottom-0 p-2 left-51/100 cursor-pointer child-cert bg-black/50  rounded-b-lg">
+            <span className="transition-colors duration-300 hover:text-blue-300">
+             Full Certificates
+            </span>
+            <div className="absolute bottom-[-5px] left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 transition-all duration-500 ease-out hover:w-full hover:left-0"></div>
+          </Link>
+
+
+        </div>
         <a href="#Articles">
           <div className="relative group cursor-pointer">
             <span className="transition-colors duration-300 group-hover:text-blue-300">

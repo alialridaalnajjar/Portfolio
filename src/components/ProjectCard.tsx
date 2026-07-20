@@ -4,20 +4,20 @@ export default function ProjectCard({
   repo,
   img,
   desc,
-  inverse,
+  index
 }: {
   name: string;
   url: string;
   repo: string;
   img: string;
   desc: string;
-  inverse: boolean;
+  index: number;
 }) {
   return (
     <div className="w-full relative pt-20 md:px-25 lg:px-50">
       <div
         className={`bg-indigo-800 flex flex-row items-center justify-between max-w-5/9 h-50 md:h-75 lg:h-145 ${
-          inverse ? "ml-auto md:ml-auto lg:ml-auto" : ""
+          index % 2 !== 0 ? "ml-auto md:ml-auto lg:ml-auto" : ""
         }`}
       >
         <a href={url}>
@@ -36,7 +36,7 @@ export default function ProjectCard({
         absolute bottom-0.5 text-white caret-transparent bg-black/30 
         gap-2 flex flex-col items-start justify-around p-1 pl-1.5 max-h-45 h-full
         ${
-          inverse
+          index % 2 !== 0
             ? "left-13.25 md:left-1/10 md:right-auto md:top-20 lg:left-2/10 lg:right-auto lg:top-35"
             : "right-13.25 md:left-auto md:right-1/10 md:top-20 lg:left-auto lg:right-2/10 lg:top-35"
         }
