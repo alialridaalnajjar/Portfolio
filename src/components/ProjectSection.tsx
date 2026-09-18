@@ -25,7 +25,7 @@ export default function ProjectSection() {
       img: ImgThree,
       desc: "Developed & Architected using MVC and design patterns, a modern web app for learning programming languages. Implemented user authO and authZ, also integrated firebase cloud for storage.",
     }, {
-      name: "Sakekrha",
+      name: "Sakerrha",
       url: "https://sakkerha.up.railway.app/",
       repo: "https://github.com/alialridaalnajjar/sakkerha_uni",
       img: ImgFive,
