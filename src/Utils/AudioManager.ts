@@ -28,9 +28,17 @@ class AudioManager {
     audio.loop = true;
     audio.volume = 0.1;
     // Don't fight the background video for bandwidth on first paint — the file is
-    // only fetched once we actually start playing.
+    // only buffered once the page has finished loading (or playback starts), so
+    // the music is ready by the time the visitor first interacts.
     audio.preload = "none";
     this.audio = audio;
+
+    const warmUp = () => {
+      audio.preload = "auto";
+      if (audio.paused) audio.load();
+    };
+    if (document.readyState === "complete") warmUp();
+    else window.addEventListener("load", warmUp, { once: true });
 
     audio.play().then(
       () => this.setPlaying(true),

@@ -26,6 +26,9 @@ export default function MainPage() {
   // is blocked by the browser).
   useEffect(() => {
     AudioManager.initialize();
+    // Fetch the awake sprite now so the swap from sleeping is instant when the
+    // music starts.
+    new Image().src = awake;
   }, []);
 
   const handleNavClick = () => {
