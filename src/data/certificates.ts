@@ -1,6 +1,8 @@
 import TSCert from "../assets/CertificatesImages/TSCert.png";
 import AubAi from "../assets/CertificatesImages/AubAI.png";
 import SC from "../assets/CertificatesImages/FsScrimba.png";
+import ResponsiveWebDesign from "../assets/CertificatesImages/Responsive-Web-Design.png";
+import ReactB from "../assets/CertificatesImages/React-B.png";
 export type TimelineEntry = {
   title: string;
   certificateTitle: string;
@@ -29,11 +31,10 @@ export const Certificates: TimelineEntry[] = [
   },
   {
     title: "FRONT-END",
-    certificateTitle: "Full Stack Web Development Certification",
+    certificateTitle: "Responsive Web Design Certification",
     description:
       "Completed comprehensive Front-End development program covering HTML5, Vanilla CSS, JavaScript ES6+. Built multiple projects and gained frontend development skills.",
-    imageUrl:
-      "https://alialridaalnajjar.github.io/My-Cetificates.github.io/images/Screenshot%202025-02-17%20234635.png",
+    imageUrl: ResponsiveWebDesign,
     imageAlt:
       "https://www.freecodecamp.org/certification/AliAlNajjar/responsive-web-design",
   },
@@ -42,8 +43,7 @@ export const Certificates: TimelineEntry[] = [
     certificateTitle: "React B HackerRank",
     description:
       "Completed the React (B) Developer certification on HackerRank, demonstrating foundational skills in React.js.",
-    imageUrl:
-      "https://alialridaalnajjar.github.io/My-Cetificates.github.io/images/Screenshot%202025-03-21%20154149.png",
+    imageUrl: ReactB,
     imageAlt: "https://www.hackerrank.com/certificates/iframe/d0d28b52c281",
   },
   {
