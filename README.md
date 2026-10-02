@@ -13,7 +13,7 @@ Welcome to my interactive developer portfolio! This site is a retro-inspired, mu
 - **Background Music & Sound**: Toggleable music and click sounds for an immersive experience.
 - **Project Showcases**: Live previews and GitHub links for featured projects:
   - **DevArt**: Web app for learning programming languages ([Live](https://devart-learn.vercel.app/) | [Repo](https://github.com/alialridaalnajjar/DevArt_Front))
-  - **Sakerrha**: Municipal service web app ([Live](https://sakkerha.up.railway.app/) | [Repo](https://github.com/alialridaalnajjar/sakkerha_uni))
+  - **Sakkerha**: Municipal service web app ([Live](https://sakkerha.up.railway.app/) | [Repo](https://github.com/alialridaalnajjar/sakkerha_uni))
   - **No Wallet Gaming**: Wallet-free way to explore web games ([Live](https://no-wallet-gaming.vercel.app/) | [Repo](https://github.com/alialridaalnajjar/NoWalletGamingFrontEnd))
   - **AR Warehouse**: E-commerce for esports gadgets ([Live](https://ar-warehouse.vercel.app/) | [Repo](https://github.com/alialridaalnajjar/AR_Warehouse))
   - **Baka Rate**: Anime listing/rating app ([Live](https://alialridaalnajjar.github.io/BakaRate/) | [Repo](https://github.com/alialridaalnajjar/BakaRate))

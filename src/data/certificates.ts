@@ -26,10 +26,10 @@ export const Certificates: TimelineEntry[] = [
       "https://scrimba.com/certificate/9b1e5f8c-7a0c-4d9b-8c3e-1a2b3c4d5e6f",
   },
   {
-    title: "Soft Skills",
-    certificateTitle: "AI Fundamentals",
+    title: "AI",
+    certificateTitle: "AI Starter Kit Professional Certificate",
     description:
-      "Completed the AI Fundamentals course from the American University of Beirut (AUB), gaining foundational knowledge in artificial intelligence concepts and applications.",
+      "Completed the AI Starter Kit Professional Certificate from the American University of Beirut (AUB) in partnership with ZAKA, gaining foundational knowledge in artificial intelligence concepts and applications.",
     issuer: "American University of Beirut",
     date: "Nov 2025",
     imageUrl: AubAi,

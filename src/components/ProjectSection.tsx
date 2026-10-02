@@ -23,9 +23,9 @@ export default function ProjectSection() {
       url: "https://devart-learn.vercel.app/",
       repo: "https://github.com/alialridaalnajjar/DevArt_Front",
       img: ImgThree,
-      desc: "Developed & Architected using MVC and design patterns, a modern web app for learning programming languages. Implemented user authO and authZ, also integrated firebase cloud for storage.",
+      desc: "Developed & Architected using MVC and design patterns, a modern web app for learning programming languages. Implemented user authentication and authorization, and integrated Firebase cloud storage.",
     }, {
-      name: "Sakerrha",
+      name: "Sakkerha",
       url: "https://sakkerha.up.railway.app/",
       repo: "https://github.com/alialridaalnajjar/sakkerha_uni",
       img: ImgFive,
@@ -43,14 +43,14 @@ export default function ProjectSection() {
       url: "https://ar-warehouse.vercel.app/",
       repo: "https://github.com/alialridaalnajjar/AR_Warehouse",
       img: Imgone,
-      desc: "A modern,responsive e-commerce web app for esports gadgets, built with React, TypeScript, and Tailwind CSS.",
+      desc: "A modern, responsive e-commerce web app for esports gadgets, built with React, TypeScript, and Tailwind CSS.",
     },
     {
       name: "Baka Rate",
       url: "https://alialridaalnajjar.github.io/BakaRate/",
       repo: "https://github.com/alialridaalnajjar/BakaRate",
       img: ImgTwo,
-      desc: " BAKARATE is a modern, interactive anime listing and rating web app built with React, TypeScript, and Tailwind CSS.",
+      desc: "BAKARATE is a modern, interactive anime listing and rating web app built with React, TypeScript, and Tailwind CSS.",
     },
   ];
 
