@@ -9,7 +9,7 @@ description: string;
 export default function CertificateCard({img, certificateTitle, description}: CertificatedCardProps) {
   return (
     <div>
-            <img src={img} alt="" />
+            <img loading="lazy" src={img} alt="" />
             <div>{certificateTitle}</div>
 <div>{description}</div>
 

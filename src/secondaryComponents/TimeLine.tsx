@@ -77,6 +77,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
                 <div className="w-full max-w-md mx-auto lg:max-w-lg ">
                   <img
+                    loading="lazy"
                     src={item.imageUrl || "/placeholder.svg"}
                     alt={item.imageAlt}
                     width={400}

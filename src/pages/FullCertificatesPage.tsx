@@ -24,6 +24,7 @@ export default function FullCertificatesPage() {
             >
               <div className="max-h-64 max-w-full overflow-hidden">
                 <img
+                  loading="lazy"
                   src={certificate.imageUrl}
                   alt={certificate.title}
                   className="w-full h-full object-cover"

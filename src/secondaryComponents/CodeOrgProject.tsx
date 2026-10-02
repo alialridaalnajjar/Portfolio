@@ -1,4 +1,4 @@
-import img from "../assets/ProjectImages/codeOrgImg111.png";
+import img from "../assets/ProjectImages/codeOrgImg111.webp";
 export default function CodeOrgProject() {
   return (
     <div
@@ -10,6 +10,7 @@ export default function CodeOrgProject() {
       >
         <a href="https://studio.code.org/projects/applab/eMJlUxRGQccYPfv5qbbEvPdTIywD6gTC3tcy37LJlOw">
           <img
+            loading="lazy"
             src={img}
             alt="Project Image"
             className="h-35 w-13/15 md:h-65 md:w-120 lg:h-120 lg:w-200"

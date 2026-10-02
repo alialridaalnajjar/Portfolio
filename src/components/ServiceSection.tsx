@@ -2,7 +2,7 @@ import css from "../assets/languagesImg/css3.svg";
 import ex from "../assets/languagesImg/Express.svg";
 import git from "../assets/languagesImg/git.svg";
 import html from "../assets/languagesImg/html.svg";
-import img from "../assets/languagesImg/img1Guest.png";
+import img from "../assets/languagesImg/img1Guest.webp";
 import java from "../assets/languagesImg/java.svg";
 import javascript from "../assets/languagesImg/javascript.svg";
 import postgreSql from "../assets/languagesImg/postgresql.svg";
@@ -40,7 +40,7 @@ export default function ServiceSection() {
       <div className=" lg:mt-15  lg:visible lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-15 mt-2">
         {/* Profile and description */}
         <div className="flex flex-col items-center justify-center gap-4 text-xs font-mono mt-7.5">
-          <img src={img} alt="Profile Image" className="size-60 lg:size-80" />
+          <img loading="lazy" src={img} alt="Profile Image" className="size-60 lg:size-80" />
           <p className="text-white text-left max-w-80 leading-4.75 lg:text-xl lg:max-w-xl lg:leading-8 lg:font-sans lg:font-light ">
             Fully committed to the philosophy of life-long learning, I'm a full
             stack developer with a deep passion for TypeScript, React and all
@@ -57,7 +57,7 @@ export default function ServiceSection() {
         <div className="flex flex-wrap justify-center gap-4 mt-8 px-4 lg:max-w-2xl lg:gap-10">
           {languages.map((lang, index) => (
             <div key={index} className="tech-card lg:size-35 ">
-              <img src={lang.icon} alt={lang.name} className="size-10 mb-2" />
+              <img loading="lazy" src={lang.icon} alt={lang.name} className="size-10 mb-2" />
               <h1 className="text-xs text-white text-center font-semibold uppercase">
                 {lang.name}
               </h1>

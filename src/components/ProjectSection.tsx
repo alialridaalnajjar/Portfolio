@@ -1,11 +1,11 @@
 import CodeOrgProject from "@/secondaryComponents/CodeOrgProject";
 import { ArrowDownFromLine } from "lucide-react";
 import React from "react";
-import Imgone from "../assets/ProjectImages/ArWarehouse.png";
-import ImgTwo from "../assets/ProjectImages/BakaRate.png";
-import ImgThree from "../assets/ProjectImages/DevArt.png";
-import ImgFour from "../assets/ProjectImages/Screenshot 2026-01-31 163133.png";
-import ImgFive from "../assets/ProjectImages/Sakekrha.png";
+import Imgone from "../assets/ProjectImages/ArWarehouse.webp";
+import ImgTwo from "../assets/ProjectImages/BakaRate.webp";
+import ImgThree from "../assets/ProjectImages/DevArt.webp";
+import ImgFour from "../assets/ProjectImages/Screenshot 2026-01-31 163133.webp";
+import ImgFive from "../assets/ProjectImages/Sakekrha.webp";
 import ProjectCard from "./ProjectCard";
 export default function ProjectSection() {
   const [expanded, setExpanded] = React.useState(false);

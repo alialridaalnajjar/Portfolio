@@ -100,6 +100,7 @@ export default function ArticlePage() {
           <div className="flex h-full">
             <div className="flex-1 relative group">
               <img
+                loading="lazy"
                 src={article.setOfImages.image1 || "/placeholder.svg"}
                 alt="Article image 1"
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -108,6 +109,7 @@ export default function ArticlePage() {
             </div>
             <div className="flex-1 relative group border-l border-gray-800">
               <img
+                loading="lazy"
                 src={article.setOfImages.image2 || "/placeholder.svg"}
                 alt="Article image 2"
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -117,6 +119,7 @@ export default function ArticlePage() {
             {article.setOfImages.image3 && (
               <div className="flex-1 relative group border-l border-gray-800 hidden lg:block">
                 <img
+                  loading="lazy"
                   src={article.setOfImages.image3 || "/placeholder.svg"}
                   alt="Article image 3"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -127,6 +130,7 @@ export default function ArticlePage() {
             {article.setOfImages.image4 && (
               <div className="flex-1 relative group border-l border-gray-800 hidden lg:block">
                 <img
+                  loading="lazy"
                   src={article.setOfImages.image4 || "/placeholder.svg"}
                   alt="Article image 4"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"

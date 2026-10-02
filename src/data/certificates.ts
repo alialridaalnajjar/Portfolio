@@ -1,8 +1,8 @@
-import TSCert from "../assets/CertificatesImages/TSCert.png";
-import AubAi from "../assets/CertificatesImages/AubAI.png";
-import SC from "../assets/CertificatesImages/FsScrimba.png";
-import ResponsiveWebDesign from "../assets/CertificatesImages/Responsive-Web-Design.png";
-import ReactB from "../assets/CertificatesImages/React-B.png";
+import TSCert from "../assets/CertificatesImages/TSCert.webp";
+import AubAi from "../assets/CertificatesImages/AubAI.webp";
+import SC from "../assets/CertificatesImages/FsScrimba.webp";
+import ResponsiveWebDesign from "../assets/CertificatesImages/Responsive-Web-Design.webp";
+import ReactB from "../assets/CertificatesImages/React-B.webp";
 export type TimelineEntry = {
   title: string;
   certificateTitle: string;

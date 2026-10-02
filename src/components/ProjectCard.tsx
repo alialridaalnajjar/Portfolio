@@ -22,6 +22,7 @@ export default function ProjectCard({
       >
         <a href={url}>
           <img
+            loading="lazy"
             src={img}
             alt="Project Image"
             className="h-35 w-13/15 md:h-65 md:w-120 lg:h-120 lg:w-200"
