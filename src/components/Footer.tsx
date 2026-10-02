@@ -64,7 +64,7 @@ export function Footer() {
           <h4 className="text-xl font-semibold text-blue-400 mb-4">Connect</h4>
           <div className="flex space-x-6">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:alialridaalnajjar@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-400 hover:text-green-400 transition-colors duration-200"

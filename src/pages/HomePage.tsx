@@ -9,10 +9,17 @@ import ThreeDButton from "@/secondaryComponents/ThreeDButton";
 import { Timeline } from "@/secondaryComponents/TimeLine";
 import VerticalLine from "@/secondaryComponents/VerticalLine";
 import { Link } from "react-router-dom";
+import { usePageMeta } from "../Utils/usePageMeta";
 import ArticleSection from "./ArticleSection";
 import MainPage from "./MainPage";
 
 export default function HomePage() {
+  usePageMeta(
+    "Ali Al Najjar | Full Stack Developer Portfolio",
+    "Portfolio of Ali Al Najjar, a full stack developer working with TypeScript, React, Express and PostgreSQL. Projects, certificates and articles.",
+    "/",
+  );
+
   return (
     <div className="h-auto min-h-auto">
       <BrowserRedirectModal />

@@ -3,9 +3,16 @@ import { Footer } from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Certificates } from "../data/certificates";
 import { playClickSound } from "../Utils/sounds";
+import { usePageMeta } from "../Utils/usePageMeta";
 
 export default function FullCertificatesPage() {
   const [navClicked, setNavClicked] = useState(false);
+
+  usePageMeta(
+    "Certificates | Ali Al Najjar",
+    "Professional certifications earned by Ali Al Najjar, including Scrimba, freeCodeCamp, HackerRank and the American University of Beirut.",
+    "/Certificates",
+  );
 
   return (
     <>

@@ -2,6 +2,7 @@ import { ArrowLeft, LinkIcon } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { Articles } from "../data/Articles";
 import ScrollToTop from "@/secondaryComponents/ScrollToTop";
+import { usePageMeta } from "../Utils/usePageMeta";
 
 interface ArticleData {
   articleTest: string;
@@ -24,6 +25,12 @@ export default function ArticlePage() {
 
   const article: ArticleData | undefined = Articles.find(
     (a) => a.slug === slug
+  );
+
+  usePageMeta(
+    `${article?.title ?? "Article Not Found"} | Ali Al Najjar`,
+    article?.description ?? "This article could not be found.",
+    `/Article/${slug ?? ""}`,
   );
 
   if (!article) {

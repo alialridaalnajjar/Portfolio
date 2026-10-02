@@ -24,7 +24,7 @@ export default function ProjectCard({
           <img
             loading="lazy"
             src={img}
-            alt="Project Image"
+            alt={`${name} screenshot`}
             className="h-35 w-13/15 md:h-65 md:w-120 lg:h-120 lg:w-200"
           />
         </a>
@@ -33,8 +33,8 @@ export default function ProjectCard({
       {/* Overlays here */}
       <div
         className={`
-        md:max-h-65 md:justify-around md:bg-transparent lg:max-h-100 lg:justify-around lg:bg-transparent 
-        absolute bottom-0.5 text-white caret-transparent bg-black/30 
+        md:max-h-65 md:justify-around md:p-4 lg:max-h-100 lg:justify-around lg:p-6
+        absolute bottom-0.5 text-white caret-transparent bg-black/65 backdrop-blur-sm rounded-md
         gap-2 flex flex-col items-start justify-around p-1 pl-1.5 max-h-45 h-full
         ${
           index % 2 !== 0

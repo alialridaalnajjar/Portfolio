@@ -8,12 +8,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
+  // Re-measure whenever the list resizes (e.g. as lazy images load) so the
+  // progress line always spans the full list.
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
-    }
-  }, [ref]);
+    const list = ref.current;
+    if (!list) return;
+    const observer = new ResizeObserver(() => {
+      setHeight(list.getBoundingClientRect().height);
+    });
+    observer.observe(list);
+    return () => observer.disconnect();
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -45,15 +50,12 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             href={item.imageAlt}
             target="_blank"
             rel="noopener noreferrer"
-            className="block"
+            className="block group"
             key={index}
           >
-            <div
-              key={index}
-              className="flex justify-start pt-8 lg:pt-40 lg:gap-10"
-            >
+            <div className="flex justify-start pt-10 lg:pt-24 lg:gap-10">
               <div className="sticky flex flex-col items-center top-20 lg:top-40 self-start max-w-xs lg:max-w-sm lg:flex-row z-40 lg:w-full">
-                <div className="h-8 absolute left-2 w-8 rounded-full bg-blue-800 flex items-center justify-center lg:h-10 lg:left-3 lg:w-10">
+                <div className="h-8 absolute left-2 w-8 rounded-full bg-blue-800 flex items-center justify-center transition-shadow duration-300 group-hover:shadow-[0_0_16px_rgba(96,165,250,0.8)] lg:h-10 lg:left-3 lg:w-10">
                   <div className="h-3 w-3 rounded-full bg-blue-400 border border-blue-300 p-1 lg:h-4 lg:w-4 lg:p-2" />
                 </div>
                 <h3 className="hidden text-xl font-bold text-blue-200 lg:block lg:pl-20 lg:text-5xl">
@@ -61,16 +63,27 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 </h3>
               </div>
 
-              <div className="relative pl-16 pr-2 w-full lg:pl-4 lg:pr-4 ">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.5 }}
+                className="relative pl-16 pr-2 w-full lg:pl-4 lg:pr-4 "
+              >
                 <h3 className="block text-xl mb-3 text-left font-bold text-blue-200 lg:hidden">
                   {item.title}
                 </h3>
 
                 <div className="mb-4 lg:mb-6">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-2 lg:text-xl">
+                  {(item.issuer || item.date) && (
+                    <p className="text-xs uppercase tracking-widest text-blue-400 mb-1 lg:text-sm">
+                      {[item.issuer, item.date].filter(Boolean).join(" · ")}
+                    </p>
+                  )}
+                  <h4 className="text-lg font-semibold text-blue-300 mb-2 lg:text-2xl">
                     {item.certificateTitle}
                   </h4>
-                  <p className="text-blue-100 text-sm mb-4 lg:text-base lg:mb-6">
+                  <p className="text-blue-100/80 text-sm max-w-xl lg:text-base">
                     {item.description}
                   </p>
                 </div>
@@ -79,13 +92,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                   <img
                     loading="lazy"
                     src={item.imageUrl || "/placeholder.svg"}
-                    alt={item.imageAlt}
-                    width={400}
-                    height={300}
-                    className=" w-full h-52 rounded-lg object-cover shadow-[0_0_24px_rgba(59,_130,_246,_0.15),_0_1px_1px_rgba(59,_130,_246,_0.1),_0_0_0_1px_rgba(59,_130,_246,_0.2),_0_0_4px_rgba(59,_130,_246,_0.2),_0_16px_68px_rgba(29,_78,_216,_0.1),_0_1px_0_rgba(147,_197,_253,_0.2)_inset] border border-blue-500/50 lg:h-78"
+                    alt={item.certificateTitle}
+                    width={600}
+                    height={400}
+                    className=" w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.02] shadow-[0_0_24px_rgba(59,_130,_246,_0.15),_0_1px_1px_rgba(59,_130,_246,_0.1),_0_0_0_1px_rgba(59,_130,_246,_0.2),_0_0_4px_rgba(59,_130,_246,_0.2),_0_16px_68px_rgba(29,_78,_216,_0.1),_0_1px_0_rgba(147,_197,_253,_0.2)_inset] border border-blue-500/50"
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </a>
         ))}

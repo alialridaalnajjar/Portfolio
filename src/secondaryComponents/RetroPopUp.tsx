@@ -62,8 +62,6 @@ export function RetroPopup() {
       </div>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
-
         /* Using VT323 for a more readable retro font, Press Start 2P is too chunky for body text */
         .font-mono {
           font-family: 'VT323', monospace;

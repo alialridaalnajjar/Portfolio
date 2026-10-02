@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 import { TbFileCv } from "react-icons/tb";
 import CV from "../assets/AliAlNajjar_CV.pdf";
 import lgVid from "../assets/BackgroundVideos/DesktopBackground.mp4";
+import lgPoster from "../assets/BackgroundVideos/DesktopPoster.webp";
 import bgVid from "../assets/BackgroundVideos/MobileBackground.mp4";
+import bgPoster from "../assets/BackgroundVideos/MobilePoster.webp";
 import awake from "../assets/Sprite/AwakeSprite.gif";
 import sleep from "../assets/Sprite/SleepingSprite.gif";
 import AudioManager from "../Utils/AudioManager";
@@ -45,9 +47,11 @@ export default function MainPage() {
 
       {/* Only the video for the current viewport is mounted, so we never download
           both the mobile and desktop files. `preload="metadata"` lets it stream
-          in instead of blocking on a full buffer. */}
+          in instead of blocking on a full buffer; the poster (the video's first
+          frame) fills the hero until it starts. */}
       <video
         key={isDesktop ? "desktop" : "mobile"}
+        poster={isDesktop ? lgPoster : bgPoster}
         preload="metadata"
         autoPlay
         loop

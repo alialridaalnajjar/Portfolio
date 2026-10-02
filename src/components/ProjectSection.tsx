@@ -65,7 +65,7 @@ export default function ProjectSection() {
           <h1 className="text-4xl font-bold text-white relative z-10 ">
             Projects
           </h1>
-          <div className="absolute top-7 left-5 w-28 h-4.5 bg-blue-700 z-0"></div>
+          <div className="absolute top-7 left-5 w-28 h-4.5 bg-indigo-800 z-0"></div>
         </div>
       </div>
       <div className="mt-10">
