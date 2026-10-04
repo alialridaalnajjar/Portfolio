@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
 
-    <link rel="icon"  href="/src/assets/Icon.jpg" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ali Al Najjar | Full Stack Developer Portfolio</title>
     <meta
@@ -21,7 +23,14 @@
     <meta property="og:image" content="https://ali-najjar.vercel.app/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ali Al Najjar portfolio home page" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ali Al Najjar | Full Stack Developer Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Full stack developer working with TypeScript, React, Express and PostgreSQL. Projects, certificates and articles."
+    />
+    <meta name="twitter:image" content="https://ali-najjar.vercel.app/og-image.jpg" />
     <link rel="canonical" href="https://ali-najjar.vercel.app/" />
 
     <!-- Retro fonts load without blocking first paint. -->
@@ -34,6 +43,16 @@
       onload="this.media='all'"
     />
 
+    <!-- Gives Google a site name; without it *.vercel.app sites show as "Vercel". -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Ali Al Najjar",
+        "alternateName": ["Ali Al Najjar Portfolio", "ali-najjar"],
+        "url": "https://ali-najjar.vercel.app/"
+      }
+    </script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
