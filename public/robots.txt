@@ -1,4 +1,4 @@
+# Legacy portfolio. Crawling stays allowed so search engines can see the noindex
+# on every page and drop it; blocking here would keep old pages listed.
 User-agent: *
 Allow: /
-
-Sitemap: https://ali-najjar.vercel.app/sitemap.xml
